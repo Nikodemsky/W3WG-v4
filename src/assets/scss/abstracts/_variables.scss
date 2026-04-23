@@ -1,0 +1,104 @@
+@use "sass:meta";
+//@use 'functions' as *; // remove this line if raw value is provided
+@use 'functions' as * with ($container_width_raw: 1200); /* raw value as in number without any additions like px/rem/em etc. */
+
+/** Global variables **/
+$container_width: 1200px;
+$container_width-mid: 720px;
+$container_width-small: 360px;
+
+$default_animation_time: .35s; /* Raw number value */
+
+/** Colour variables **/
+//$font_color01-id: #______;
+//$color: $font_color01;
+
+$white: #fff;
+
+$hover_accent: #f7961d;
+$lightmode_accent: #a70c0c;
+
+$darkmode_default_font_color: #ddd;
+$lightmode_default_font_color: #151515;
+
+$darkmode_background: #151515;
+$lightmode_background: #ddd;
+
+$green_text: #95e68b;
+$red_text: #ff9090;
+
+$abbr_dash: rgba(255,255,255, 0.5);
+$lightmode_abbr_dash: rgba(0,0,0, 0.5);
+
+$blog_navi_border: rgba(255,255,255, 0.3);
+$lightmode_blog_navi_border: rgba(0,0,0, 0.3);
+
+$default_code_border: rgba(255, 255, 255, 0.2);
+$post_details_acc_bg: rgb(37 36 36);
+
+$lightmode_default_code_border: rgba(0, 0, 0, 0.2);
+$lightmode_post_details_acc_bg: #d7d7d7;
+
+/** Breakpoints **/
+$mobiletop_breakpoint: 767px;
+$tablet_bottom_breakpoint: 768px;
+$tablet_top_breakpoint: 1024px;
+$desktop_bottom_breakpoint: 1025px;
+
+/** Font sizes - variables **/
+
+//$p_size: @include fluid-font(__, __, __);
+//$h1_size: @include fluid-font(__, __, __);
+//$h2_size: @include fluid-font(__, __, __);
+//$h3_size: @include fluid-font(__, __, __);
+//@for $i from 4 through 5 {
+  //h#{$i} {
+    //@include fluid-font(__, __, __);
+  //}
+//}
+
+//Required sizes by empty brackets: min, base, max;
+
+/** Font variables **/
+
+// $name: fluid-font-function(__, __, __);
+// raw number values, output in rem;
+// required sizes by empty brackets: min, base, max;
+
+$default_font-weight_paragraphs: 300;
+$default_font-weight_headers: 600;
+
+$preferences_text: fluid-font-function(0.813, 0.813, 0.813);
+$smaller_font_helper: 0.675rem;
+
+$default_button_text: fluid-font-function(1.125, 1.125, 1.225);
+
+$main_menu: fluid-font-function(1.375, 1.375, 1.425);
+$categories: fluid-font-function(1.275, 1.275, 1.325);
+
+$home_paragraphs: fluid-font-function(0.938, 0.938, 1.063);
+$home_intro_header: fluid-font-function(1.375, 1.375, 1.425);
+
+$home_bottom_nav: fluid-font-function(1.563, 1.563, 1.700);
+
+$blogpost_paragraph: fluid-font-function(1.125, 1.125, 1.225);
+
+$default_lineheight: 1.2;
+$home_paragraphs_lineheight: 1.188rem;
+
+$aboutme_headers: fluid-font-function(1.125, 1.125, 1.225);
+
+$blogpost_headers: fluid-font-function(1.563, 1.563, 1.700);
+$blogpost_headers_smaller: fluid-font-function(1.35, 1.35, 1.5);
+
+$w_light: 300;
+$w_regular: 400;
+$w_medium: 500;
+$w_bold: 700;
+$w_extrabold: 900;
+
+//$button_default_txt: fluid-font-function(__, __, __);
+//$section_header: fluid-font-function(__, __, __);
+
+$first_font_type: 'Kanit';
+$secondary_font_type: 'Titillium Web';

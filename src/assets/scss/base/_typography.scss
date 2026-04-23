@@ -1,0 +1,443 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+@include font-face(
+  'Kanit',
+  'Kanit-Light',
+  'Kanit-Light',
+  'Kanit-Light',
+  300,
+  normal
+);
+
+@include font-face(
+  'Kanit',
+  'Kanit-LightItalic',
+  'Kanit-LightItalic',
+  'Kanit-LightItalic',
+  300,
+  italic
+);
+
+@include font-face(
+  'Kanit',
+  'Kanit-Bold',
+  'Kanit-Bold',
+  'Kanit-Bold',
+  700,
+  normal
+);
+
+@include font-face(
+  'Kanit',
+  'Kanit-BoldItalic',
+  'Kanit-BoldItalic',
+  'Kanit-BoldItalic',
+  700,
+  italic
+);
+
+@include font-face(
+  'Titillium Web',
+  'TitilliumWeb-SemiBold',
+  'TitilliumWeb-SemiBold',
+  'TitilliumWeb-SemiBold',
+  600,
+  normal
+);
+
+@include font-face(
+  'Titillium Web',
+  'TitilliumWeb-SemiBoldItalic',
+  'TitilliumWeb-SemiBoldItalic',
+  'TitilliumWeb-SemiBoldItalic',
+  600,
+  italic
+);
+
+/** Globally used font **/
+
+body {
+  font-family: $first_font_type;
+  line-height: normal;
+  font-weight: $default_font-weight_paragraphs;
+  color: $darkmode_default_font_color;
+}
+
+body.lightmode {
+  color: $lightmode_default_font_color;
+}
+
+/** Elements **/
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $secondary_font_type;
+    font-weight: $default_font-weight_headers;
+  }
+}
+
+/**** HEADER ****/
+
+/*** Preferences navigation ***/
+
+.preferences-navi ul li,
+.preferences-navi ul li a,
+.preferences-navi ul li button {
+    font-size: $preferences_text;
+    text-transform: uppercase;
+    color: $darkmode_default_font_color;
+    font-family: $secondary_font_type;
+    letter-spacing: 0.5px;
+}
+
+.preferences-navi ul li a:hover {
+  color: $hover_accent;
+}
+
+.lightmode {
+  .preferences-navi ul li,
+  .preferences-navi ul li a,
+  .preferences-navi ul li button {
+    color: $lightmode_default_font_color;
+  }
+
+  .preferences-navi ul li a:hover {
+    color: $lightmode_accent;
+  }
+}
+
+/* .preferences-navi__font li span:first-of-type {
+  font-size: $smaller_font_helper;
+} */
+
+.preferences-navi ul li.current a,
+.preferences-navi__visual li[data-current-visual-mode="1"] span,
+.preferences-navi__visual li[data-current-visual-mode="1"] button {
+  text-decoration: underline;
+}
+
+.preferences-navi__visual li,
+.preferences-navi__font li {
+  cursor: pointer;
+  
+  &:hover,
+  &:hover button {
+    color: $hover_accent;
+  }
+
+  &::target-text {
+    background: transparent;
+  }
+}
+
+.lightmode {
+  .preferences-navi__visual li,
+  .preferences-navi__font li {
+    &:hover,
+    &:hover button {
+      color: $lightmode_accent;
+    }
+  }
+}
+
+.preferences-navi__font li span,
+.preferences-navi ul li button {
+  color: $darkmode_default_font_color;
+}
+
+.preferences-navi ul li button {
+	text-transform: uppercase;
+}
+
+
+.preferences-navi__languages li:not(:last-of-type):after,
+.preferences-navi__visual li:not(:last-of-type):after {
+  color: $darkmode_default_font_color;
+}
+
+.lightmode {
+  .preferences-navi__font li span,
+  .preferences-navi__font li button,
+  .preferences-navi__languages li:not(:last-of-type):after,
+  .preferences-navi__visual li:not(:last-of-type):after {
+    color: $lightmode_default_font_color;
+  }
+}
+
+.a-font-large {
+  .preferences-navi ul li,
+  .preferences-navi ul li a,
+  .preferences-navi ul li button {
+    font-size: calc(#{$preferences_text} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .preferences-navi ul li,
+  .preferences-navi ul li a,
+  .preferences-navi ul li button {
+      font-size: calc(#{$preferences_text} * 1.50);
+  }
+}
+
+/** Main menu **/
+
+.top-navigation ul li a {
+  font-family: $secondary_font_type;
+  font-weight: $default_font-weight_headers;
+  color: $darkmode_default_font_color;
+  font-size: $main_menu;
+
+  &:hover {
+    color: $hover_accent;
+  }
+}
+
+/* Blog categories */
+
+.categories-list li a {
+  font-size: $categories;
+  color: $hover_accent;
+
+  &:hover {
+    color: $darkmode_default_font_color;
+  }
+}
+
+/*** FOOTER ***/
+
+/** Home only **/
+
+.bottom-nav-home nav ul li a {
+    font-family: $secondary_font_type;
+    font-size: $home_bottom_nav;
+    color: $darkmode_default_font_color;
+    font-weight: 600;
+
+    &:hover {
+      color: $hover_accent;
+    }
+}
+
+.lightmode {
+  .bottom-nav-home nav ul li a {
+    color: $lightmode_default_font_color;
+
+    &:hover {
+      color: $lightmode_accent
+    }
+  }
+}
+
+/**** HOME ****/
+
+body.home {
+
+  p {
+    font-size: $home_paragraphs;
+    line-height: $home_paragraphs_lineheight;
+  }
+  
+  &.a-font-large p {
+    font-size: calc(#{$home_paragraphs} * 1.25);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.25);
+  }
+
+  &.a-font-xlarge p {
+    font-size: calc(#{$home_paragraphs} * 1.50);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.50);
+  }
+
+}
+
+/*** Intro ***/
+
+.claim__intro {
+  text-align: center;
+}
+
+.claim__intro h1 {
+  font-size: $home_intro_header;
+  margin-bottom: 0.5em;
+}
+
+.claim .simple-btn {
+  font-size: $default_button_text;
+}
+
+.a-font-large { 
+  .claim__intro h1 {
+    font-size: calc(#{$home_intro_header} * 1.25);
+  }
+  .claim .simple-btn {
+    font-size: calc(#{$default_button_text} * 1.25);
+  }
+}
+
+.a-font-xlarge { 
+  .claim__intro h1 {
+    font-size: calc(#{$home_intro_header} * 1.50);
+  }
+  .claim .simple-btn {
+    font-size: calc(#{$default_button_text} * 1.50);
+  }
+}
+
+/*** About me ***/
+
+.whoiam__projects-header,
+.whoiam__aboutme-header {
+  font-size: $aboutme_headers;
+}
+
+.a-font-large {
+  .whoiam__projects-header,
+  .whoiam__aboutme-header {
+    font-size: calc(#{$aboutme_headers} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .whoiam__projects-header,
+  .whoiam__aboutme-header {
+    font-size: calc(#{$aboutme_headers} * 1.50);
+  }
+}
+
+.whoiam__aboutme .whoiam__aboutme-header {
+  margin-bottom: 0.75em;
+}
+
+.whoiam__hobby .whoiam__aboutme-header,
+.whoiam__projects-list .accordion__intro {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+/** Accordions and Details element **/
+
+.accordion--moreinfo a {
+  color: $hover_accent;
+  
+  &:hover {
+    color: $white;
+  }
+}
+
+.whoiam__col-text details summary {
+  font-size: $aboutme_headers;
+  font-family: $secondary_font_type;
+  font-weight: 600;
+}
+
+.a-font-large {
+  .whoiam__col-text details summary {
+    font-size: calc(#{$aboutme_headers} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .whoiam__col-text details summary {
+    font-size: calc(#{$aboutme_headers} * 1.50);
+  }
+}
+
+summary {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+
+  &:hover {
+    color: $white;
+  }
+
+}
+
+.a-font-large {
+  summary {
+    font-size: calc(#{$home_paragraphs} * 1.25);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  summary {
+    font-size: calc(#{$home_paragraphs} * 1.50);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.50);
+  }
+}
+
+
+.lightmode {
+  summary:hover {
+    color: $lightmode_accent
+  }
+}
+
+.whoiam__projects-list details a {
+  font-size: $home_paragraphs;
+  line-height: $home_paragraphs_lineheight;
+  color: $hover_accent;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.a-font-large {
+  .whoiam__projects-list details a {
+    font-size: calc(#{$home_paragraphs} * 1.25);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .whoiam__projects-list details a {
+    font-size: calc(#{$home_paragraphs} * 1.50);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.50);
+  }
+}
+
+
+.whoiam__col-text details a {
+  color: $hover_accent;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.whoiam__projects-list details summary {
+  margin-left: auto;
+}
+
+.lightmode {
+  .whoiam__col-text details a,
+  .whoiam__projects-list details a {
+    color: $lightmode_accent;
+
+  &:hover {
+    color: $lightmode_default_font_color
+  }
+  }
+}
+
+.a-font-large {
+  .whoiam > .simple-btn {
+    font-size: calc(#{$home_paragraphs} * 1.25);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .whoiam > .simple-btn {
+    font-size: calc(#{$home_paragraphs} * 1.50);
+    line-height: calc(#{$home_paragraphs_lineheight} * 1.50);
+  }
+}
