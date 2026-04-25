@@ -1,9 +1,13 @@
 <?php
 
+if (function_exists('get_field')) { // check for ACF plugin
+
 // ACF vars
 $plugins_list = get_field('plugins_list');
 $plugins_outro = get_field('plugins_txt_summary');
 $table_of_contents_check = get_field('toc_check');
+
+}
 
 ?>
 
@@ -11,28 +15,21 @@ $table_of_contents_check = get_field('toc_check');
     <div class="container">
         <article>
 
-            <?php if ($table_of_contents_check && $plugins_list) : ?>
-            <details class="plugins-wrapper__toc" data-nosnippet>
-                <summary><?php esc_html_e( 'Spis treści', 'wg-blank' ); ?></summary>
-                <div class="details-content">
-                    <ol>
-                        <?php foreach ($plugins_list as $p) :
-
-                            // vars
-                            $title = $p['sp_title'];
-                            $sanitized_title = sanitize_title($title);
-
-                            // output
-                            echo '<li><a href="#'.$sanitized_title.'" rel="nofollow">'.$title.'</a></li>';
-
-                        endforeach; ?>
-                    </ol>
-                </div>
-            </details>
-            <?php endif; ?>
+            <?php if ($table_of_contents_check && $plugins_list) :
+                get_template_part(
+                    'template-parts/post/block',
+                    'toc',
+                    array(
+                        'post_id' => get_the_ID(), // required
+                        'wrapper_class' => 'plugins-wrapper',
+                        'list_field_id' => 'plugins_list',
+                        'title_subfield_id' => 'sp_title',
+                    )
+                );
+            endif; ?>
 
             <?php if ($plugins_list) : ?>
-            <ul id="<?php esc_html_e( 'lista-wtyczek', 'wg-blank' ); ?>" class="plugins-list plugins-list--no-styling">
+            <ul id="<?php esc_html_e( 'lista-wtyczek', 'wg-blank' ); ?>" class="plugins-list plugins-list--no-styling list-reset">
 
                 <?php foreach ($plugins_list as $plugin) :
 
