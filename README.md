@@ -1,3 +1,5 @@
+## LANG: PL
+
 # W3WG-v4
 Czwarta wersja witryny w3wg.com
 
