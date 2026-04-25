@@ -22,6 +22,11 @@ $font-scales: (
 		    width: calc(20px * #{$scale}); height: calc(20px * #{$scale});
         }
 
+        pre[class*=language-],
+        pre[class*=language-] * {
+            font-size: calc(1rem * #{$scale});
+        }
+
         /*** HEADER ***/
 
         .preferences-navi ul li,
@@ -31,6 +36,22 @@ $font-scales: (
         }
 
         /*** FOOTER ***/
+
+        .footer__share-on span,
+        .footer__copyright,
+        .footer__update-time,
+        .footer__privacy-policy {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+        }
+
+        .footer__share-on ul li button {
+            height: calc(1.3em * #{$scale});
+            width: calc(1.55em * #{$scale});
+        }
+
+        .footer__go-up svg {
+            transform: scale(#{$scale});
+        }
 
         /** Home only **/
 
@@ -86,6 +107,59 @@ $font-scales: (
         details {
             padding-block: calc(0.25em * #{$scale});
         }
+
+        /**** T02: Default blogpost styling ****/
+
+        &.single article p,
+        &.single article aside,
+        &.single article details summary,
+        &.single article ul:not(.list-reset) li,
+        &.single article ol:not(.list-reset) li {
+            font-size: calc(#{$blogpost_paragraph} * #{$scale});
+        }
+
+        @for $i from 1 through 3 {
+            &.single article h#{$i} {
+                font-size: calc(#{$blogpost_headers} * #{$scale});
+            }
+        }
+
+        @for $i from 4 through 5 {
+            &.single article h#{$i} {
+                font-size: calc(#{$blogpost_headers_smaller} * #{$scale});
+            }
+        }
+
+        .starred-header,
+        .lbulbed-header,
+        .danger-header {
+            font-size: calc(#{$blogpost_headers_smaller} * #{$scale});
+            line-height: calc(#{$default_lineheight} * #{$scale});
+        }
+
+        &.single article .page-title {
+            font-size: calc(#{$blogpost_headers} * #{$scale});
+        }
+
+        .yellow-header-checkmark:before {
+            width: calc(23px * #{$scale});
+            height: calc(23px * #{$scale})
+        }
+
+        /**** T03: Blogpost with plugins list styling ****/
+
+        .example-block {
+            width: calc(50% * #{$scale});
+        }
+
+        .example-block__title {
+            font-size: calc(#{$blogpost_headers} * #{$scale});
+        }
+
+        &.single article small {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+        }
+
     }
 }
 

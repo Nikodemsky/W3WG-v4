@@ -10,6 +10,14 @@
 
     /**** HEADER ****/
 
+    .top-navigation ul li a {
+        color: $lightmode_default_font_color;
+
+        &:hover {
+            color: $lightmode_accent;
+        }
+    }
+
     /*** Blog navigation ***/
 
     .custom-logo-link img {
@@ -57,6 +65,36 @@
 
     /**** FOOTER ****/
 
+    .footer__bottom-grid--top-border {
+        border-color: $lightmode_default_code_border;
+    }
+
+    .footer__share-on ul li button {
+        & svg path {
+            fill: $lightmode_default_font_color !important;
+        }
+        &:hover svg path {
+            fill: $lightmode_accent !important;
+        }
+    }
+
+    .footer__go-up {
+        svg {
+            stroke: $lightmode_default_font_color;
+        }
+        &:hover svg {
+            stroke: $lightmode_accent;
+        }
+    }
+
+    .footer__privacy-policy {
+        color: $lightmode_default_font_color;
+
+        &:hover {
+            color: $lightmode_accent;
+        }
+    }
+
     /** Home only **/
 
     .bottom-nav-home nav ul li a {
@@ -100,9 +138,8 @@
         }
     }
 
-    .post__txt--green {
-        color: #136509;
-    }
+    .post__txt--green {color: $lightmode_green_text}
+    .post__txt--red{color:$lightmode_red_text}
 
     .post__hr {
         background-color: $lightmode_default_font_color;
@@ -119,6 +156,39 @@
         &:hover {
             color: $lightmode_default_font_color;
         }
+    }
+
+    .lightmode-invert,
+    &.single article ul.checkmark-list li:before,
+    .yellow-header-checkmark:before {
+        filter: invert(1);
+    }
+
+    .starred-header:before, 
+    .lbulbed-header:before, 
+    .danger-header:before {
+        filter: brightness(0);
+    }
+
+    .plus-list li:before {
+        background: url(../../assets/svg/plus-lightm.svg) no-repeat center; background-size: contain;
+    }
+
+    .minus-list li:before {
+        background: url(../../assets/svg/minus-lightm.svg) no-repeat center; background-size: contain;
+    }
+
+    .plugins-list__single:after, 
+    .dlist__single:after,
+    .post__hr.post__hr--dashed {
+        background-image: linear-gradient(to right, $lightmode_default_font_color 33%, rgba(255,255,255,0.0001) 0%);
+    }
+
+    /* Example block */
+
+    .example-block {
+        background: $lightmode_background;
+        border: 1px solid $darkmode_background;
     }
 
     /**** T03: Prism overrides for light mode ****/

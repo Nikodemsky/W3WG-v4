@@ -104,25 +104,31 @@ summary {
   display: block;
 }
 
-/**** T02: Default blogpost styling ****/
+/**** T02: Default blogpost and default page template styling ****/
 
-.single article {
+.single article,
+.page-template-default article {
     container-type: inline-size;
 }
 
-.single article strong {
+.single article strong,
+.page-template-default article strong {
   font-weight: 500;
 }
 
 .single article p,
 .single article ul:not(.list-reset) li,
-.single article ol:not(.list-reset) li {
+.single article ol:not(.list-reset) li,
+.page-template-default article p,
+.page-template-default article ul:not(.list-reset) li,
+.page-template-default article ol:not(.list-reset) li {
     font-size: $blogpost_paragraph;
     line-height: normal;
     font-weight: $default_font-weight_paragraphs;
 }
 
-.single article aside {
+.single article aside,
+.page-template-default article aside {
     font-size: $blogpost_paragraph;
     line-height: normal;
     font-weight: $default_font-weight_paragraphs;
@@ -136,13 +142,22 @@ summary {
     }
 }
 
+.page-template-default article a {
+    color: $hover_accent;
+
+    &:hover {
+        color: $darkmode_default_font_color;
+    }
+}
+
 .post__txt--green{color:$green_text}
 .post__txt--red{color:$red_text}
 
 .post__txt--bold-header{font-weight:500}
 .post__txt--underline{text-decoration:underline;text-underline-offset:3px}
 
-.single article details summary {
+.single article details summary,
+.page-template-default article details summary {
     font-size: $blogpost_paragraph;
     line-height: normal;
     color: $hover_accent;
@@ -154,13 +169,15 @@ summary {
 }
 
 @for $i from 2 through 3 {
-  .single article h#{$i} {
+  .single article h#{$i},
+  .page-template-default article h#{$i} {
     font-size: $blogpost_headers;
   }
 }
 
 @for $i from 4 through 5 {
-  .single article h#{$i} {
+  .single article h#{$i},
+  .page-template-default article h#{$i} {
     font-size: $blogpost_headers_smaller;
   }
 }
