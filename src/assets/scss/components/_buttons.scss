@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/** Default buttons **/
+
+.simple-btn {
+    background-color: $darkmode_background;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+    padding-block: 0.5em;
+}
+
+.simple-btn:hover {
+    color: $hover_accent;
+}
+
+@scope (.lightmode) {
+    .simple-btn {
+        background-color: $lightmode_background;
+
+        &:hover {
+            color: $lightmode_accent;
+        }
+    }
+}

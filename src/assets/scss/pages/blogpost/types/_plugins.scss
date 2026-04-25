@@ -1,0 +1,84 @@
+@use '../../../abstracts/variables' as *;
+
+/**** T03: Blogpost with plugins list styling ****/
+
+.post__txt--extra-margin {
+    margin-top: 1em;
+}
+
+.single article .plugins-wrapper__outro *:not(.post__hr),
+.single article .dlist__outro *:not(.post__hr) {
+    margin-block-start: 1em;
+}
+
+.plugins-list--no-styling {
+    list-style-type: none;
+    padding: 2.5em 0 0 0;
+}
+
+.dlist--no-styling {
+    list-style-type: none;
+    padding: 1em 0 0 0;
+}
+
+.plugins-list__single:after,
+.dlist__single:after {
+    content: '';
+    width: 100%; height: 1px;
+    display: block;
+    margin: 2em 0 2.5em;
+    background: transparent;
+    background-image: linear-gradient(to right, $darkmode_default_font_color 33%, rgba(255,255,255,0.0001) 0%);
+    background-position: bottom;
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+    opacity: 0.5;
+}
+
+.dlist__single:after {
+    margin-bottom: 1.5em;
+}
+
+.plugins-list__description p,
+.dlist__description p,
+.dlist-wrapper__outro p {
+    margin-block-end: 1em;
+}
+
+.plugins-list__single picture,
+.dlist__single picture {
+    width: fit-content;
+    margin-bottom: 0.5em;
+}
+
+.dlist__single picture {
+    margin-top: 1em;
+}
+
+.plugins-list__description,
+.dlist__description {
+    margin-top: 1em;
+}
+
+.plugins-list__description details,
+.dlist__description details {
+    margin-bottom: 1em;
+}
+
+/* Example block */
+
+.example-block {
+    background: $darkmode_background;
+    padding: 1em;
+    border: 1px solid $white;
+    border-radius: 5px;
+    text-align: center;
+    width: 50%;
+    margin: 1em 0;
+}
+
+.example-block__title {
+    font-size: $blogpost_headers;
+    font-family: $secondary_font_type;
+    font-weight: $w_medium;
+}

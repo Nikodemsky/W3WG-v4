@@ -1,0 +1,193 @@
+@use '../abstracts/variables' as *;
+
+/**** T01: HOME ****/
+
+body.home {
+  p {
+    font-size: $home_paragraphs;
+    line-height: $home_paragraphs_lineheight;
+  }
+}
+
+/*** Intro ***/
+
+.claim__intro {
+  text-align: center;
+}
+
+.claim__intro h1 {
+  font-size: $home_intro_header;
+}
+
+.claim .simple-btn {
+  font-size: $default_button_text;
+}
+
+/*** About me ***/
+
+.whoiam__projects-header,
+.whoiam__aboutme-header {
+  font-size: $aboutme_headers;
+}
+
+.whoiam__aboutme .whoiam__aboutme-header {
+  margin-bottom: 0.75em;
+}
+
+.whoiam__hobby .whoiam__aboutme-header,
+.whoiam__projects-list .accordion__intro {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+/** Accordions and Details element **/
+
+.accordion--moreinfo a {
+  color: $hover_accent;
+  
+  &:hover {
+    color: $white;
+  }
+}
+
+.whoiam__col-text details summary {
+  font-size: $aboutme_headers;
+  font-family: $secondary_font_type;
+  font-weight: 600;
+}
+
+summary {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+
+  &:hover {
+    color: $white;
+  }
+
+}
+
+.whoiam__projects-list details a {
+  font-size: $home_paragraphs;
+  line-height: $home_paragraphs_lineheight;
+  color: $hover_accent;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.whoiam__col-text details a {
+  color: $hover_accent;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.whoiam__projects-list details summary {
+  margin-left: auto;
+}
+
+/**** T02: BLOGPOST ****/
+
+.single .page-title {
+  text-align: right;
+}
+
+.single article aside small {
+  display: block;
+}
+
+/**** T02: Default blogpost and default page template styling ****/
+
+.single article,
+.page-template-default article {
+    container-type: inline-size;
+}
+
+.single article strong,
+.page-template-default article strong {
+  font-weight: 500;
+}
+
+.single article p,
+.single article ul:not(.list-reset) li,
+.single article ol:not(.list-reset) li,
+.page-template-default article p,
+.page-template-default article ul:not(.list-reset) li,
+.page-template-default article ol:not(.list-reset) li {
+    font-size: $blogpost_paragraph;
+    line-height: normal;
+    font-weight: $default_font-weight_paragraphs;
+}
+
+.single article aside,
+.page-template-default article aside {
+    font-size: $blogpost_paragraph;
+    line-height: normal;
+    font-weight: $default_font-weight_paragraphs;
+}
+
+.single article a {
+    color: $hover_accent;
+
+    &:hover {
+        color: $darkmode_default_font_color;
+    }
+}
+
+.page-template-default article a {
+    color: $hover_accent;
+
+    &:hover {
+        color: $darkmode_default_font_color;
+    }
+}
+
+.post__txt--green{color:$green_text}
+.post__txt--red{color:$red_text}
+
+.post__txt--bold-header{font-weight:500}
+.post__txt--underline{text-decoration:underline;text-underline-offset:3px}
+
+.single article details summary,
+.page-template-default article details summary {
+    font-size: $blogpost_paragraph;
+    line-height: normal;
+    color: $hover_accent;
+    text-decoration-thickness: 1px;
+
+    &:hover {
+        color: $darkmode_default_font_color;
+    }
+}
+
+@for $i from 2 through 3 {
+  .single article h#{$i},
+  .page-template-default article h#{$i} {
+    font-size: $blogpost_headers;
+  }
+}
+
+@for $i from 4 through 5 {
+  .single article h#{$i},
+  .page-template-default article h#{$i} {
+    font-size: $blogpost_headers_smaller;
+  }
+}
+
+/* Starred header */
+
+.starred-header,
+.lbulbed-header,
+.danger-header {
+  font-size: $blogpost_headers_smaller;
+  font-weight: $default_font-weight_headers;
+  font-family: $secondary_font_type;
+}

@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+
+/** Globally used font **/
+
+body {
+  font-family: $first_font_type;
+  line-height: normal;
+  font-weight: $default_font-weight_paragraphs;
+  color: $darkmode_default_font_color;
+}
+
+/** Elements **/
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $secondary_font_type;
+    font-weight: $default_font-weight_headers;
+  }
+}
+
+abbr[title] {
+  text-underline-offset: 3px;
+  text-decoration-color: $abbr_dash;
+  text-decoration-thickness: 1px;
+  text-decoration-style: dashed;
+}

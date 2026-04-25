@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+
+details {
+  overflow: hidden;
+  container-type: inline-size;
+
+  padding-block: 0.25em;
+
+  .details-content p:not(:last-of-type) {
+    margin-bottom: .938rem
+  }
+
+  /* > p:first-of-type {
+    padding-top: .938rem
+  } */
+
+  @media (prefers-reduced-motion: no-preference) {
+
+    &::details-content {
+      max-block-size: 0;
+      transition:
+      opacity 0.3s,
+      max-block-size 0.35s linear,
+      content-visibility 0.35s linear;
+      transition-behavior: allow-discrete;
+      overflow: hidden;
+    }
+    
+    &[open]::details-content {
+      max-block-size: var(--details-max-height, 75vh);
+    }
+
+  }
+
+}
+
+summary {
+  list-style: none;
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+}

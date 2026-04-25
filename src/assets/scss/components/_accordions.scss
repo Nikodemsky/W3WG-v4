@@ -1,0 +1,33 @@
+/*** Default accodion ***/
+
+.accordion {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 20px;
+
+	&__intro {
+		position: relative;
+		cursor: pointer;
+        width: fit-content;
+	}
+
+	&__content {
+		max-height: 0;
+		overflow: hidden;
+		will-change: max-height;
+		opacity: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		&__content {
+			transition: all 0.25s ease-out;
+		}
+	}
+
+	&__active {
+		.accordion__content {
+            margin-top: 20px;
+			opacity: 1;
+		}
+	}
+}

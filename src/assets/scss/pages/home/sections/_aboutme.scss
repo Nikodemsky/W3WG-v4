@@ -1,0 +1,90 @@
+@use '../../../abstracts/variables' as *;
+
+/*** Who i am ***/
+
+.whoiam__col-half {
+    width: calc(50% - 35px);
+}
+
+.whoiam {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    align-items: center
+}
+
+@media (min-width: 768px) {
+    .whoiam:after {
+        content: '';
+        width: 1px;
+        inset: 0 0 0 0;
+        margin: 0 auto;
+        height: 100%;
+        background-color: $darkmode_default_font_color;
+        display: block;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    @scope (.lightmode) {
+        .whoiam:after {
+            background-color: $lightmode_default_font_color
+        }
+    }
+}
+
+/** Left column **/
+
+.whoiam__col-projects,
+.whoiam__projects-list .accordion--moreinfo {
+    text-align: right;
+}
+
+.whoiam__projects-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.938em;
+}
+
+.whoiam__projects-list li {
+    padding-block: 0.25em;
+}
+
+.whoiam__projects-list .accordion__intro {
+    margin-left: auto;
+}
+
+.project__description {
+    padding-top: 0.938em;
+}
+
+/** Right column **/
+
+.whoiam article,
+.project__description {
+    container-type: inline-size;
+}
+
+.whoiam__col-text article p:not(:last-of-type) {
+    margin-bottom: 0.938em;
+}
+
+/* .whoiam__col-text article:last-of-type {
+    margin-top: 2.5em
+} */
+
+.whoiam__aboutme {
+    margin-bottom: 2.5em;
+}
+
+.whoiam__col-text details .details-content {
+    padding-block: 1em;
+}
+
+/* Redirect button */
+
+.whoiam .simple-btn {
+    margin-block: 1.5em 8.5vh;
+}

@@ -1,0 +1,64 @@
+(function () {
+  const COOKIE_NAME = "w3wg_a-fz";
+  const STATES = [
+    { fontSize: "1.0", scale: "100", bodyClass: null },
+    { fontSize: "1.25", scale: "125", bodyClass: "a-font-large" },
+    { fontSize: "1.50", scale: "150", bodyClass: "a-font-xlarge" },
+    { fontSize: "2.00", scale: "200", bodyClass: "a-font-xxlarge" },
+  ];
+
+  function setCookie(name, value, days = 365) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+  }
+
+  function getCookie(name) {
+    return document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(name + "="))
+      ?.split("=")[1] ?? null;
+  }
+
+  function applyState(el, state) {
+    const span = el.querySelector("span.scale");
+
+    el.dataset.currentFontSize = state.fontSize;
+    if (span) span.textContent = state.scale;
+
+    // Remove all font classes, then apply the current one
+    STATES.forEach((s) => { if (s.bodyClass) document.body.classList.remove(s.bodyClass); });
+    if (state.bodyClass) document.body.classList.add(state.bodyClass);
+
+    setCookie(COOKIE_NAME, state.fontSize);
+  }
+
+  function getStateIndexByFontSize(fontSize) {
+    const idx = STATES.findIndex((s) => s.fontSize === fontSize);
+    return idx !== -1 ? idx : 0;
+  }
+
+  function init() {
+    const el = document.querySelector('#site-font-resize');
+    if (!el) return;
+
+    // Restore state from cookie on page load
+    const savedFontSize = getCookie(COOKIE_NAME);
+    if (savedFontSize) {
+      const savedIndex = getStateIndexByFontSize(savedFontSize);
+      applyState(el, STATES[savedIndex]);
+    }
+
+    el.addEventListener("click", () => {
+      const current = el.dataset.currentFontSize || "1.0";
+      const currentIndex = getStateIndexByFontSize(current);
+      const nextIndex = (currentIndex + 1) % STATES.length;
+      applyState(el, STATES[nextIndex]);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

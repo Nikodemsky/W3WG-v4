@@ -1,0 +1,54 @@
+@use "sass:meta";
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* Text highlight styling */
+/*::target-text {
+  background-color: #000;
+  color: #fff;
+}*/
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    @include default-transition;
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: $darkmode_background;
+}
+
+body.lightmode {
+  background-color: $lightmode_background;
+}
+
+@media (max-width: $tablet_top_breakpoint) {
+  html, body, .site {
+    max-width: 100%;
+  }
+}
+
+/** Containers **/
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  container-type: inline-size;
+  container-name: wrap;
+  width: 100%;
+  @if meta.variable-exists(container_width) {
+    max-width: min(calc(100% - 60px), $container_width);
+  }
+}
+
+.container--small {
+  max-width: min(calc(100% - 60px), $container_width-small);
+}
+
+.container--mid {
+  max-width: min(calc(100% - 60px), $container_width-mid);
+}
+
+/* Container change for large & extra large font accessibility */
+// Just in case, add container-type: inline-size; to any other containers - cqi value in function requires it.
