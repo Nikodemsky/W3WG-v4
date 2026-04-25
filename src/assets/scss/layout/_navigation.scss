@@ -1,0 +1,48 @@
+@use '../abstracts/variables' as *;
+
+/*** Blog navigation ***/
+
+.row--header-top {
+    padding-block: 75px 10px;
+    border-bottom: 1px solid $blog_navi_border;
+}
+
+.row--header-bottom {
+    padding-top: 15px;
+}
+
+/** Main menu **/
+
+.top-navigation ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.top-navigation ul li:not(:last-of-type) {
+    margin-right: 15px;
+}
+
+/* Blog categories */
+
+.categories-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.categories-list li:not(:last-of-type):after {
+    content: '|';
+    margin: 0 10px;
+    pointer-events: none;
+}
+
+/* Logo */
+
+.custom-logo-link {
+    max-width: 160px; width: 100%;
+}
+
+.custom-logo-link img {
+    opacity: 0.8;
+}

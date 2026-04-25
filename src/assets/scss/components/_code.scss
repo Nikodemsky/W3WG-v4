@@ -1,0 +1,19 @@
+@use '../abstracts/variables' as *;
+
+/*** Overrides for Prism JS ***/
+
+pre[class*=language-] {
+    border-radius: 2px !important;
+    border: 1px solid $default_code_border !important;
+}
+
+code.inline-code-block {
+    border: 0 !important; border-radius: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.inline-code-block--margin-between {
+    margin: 0 0.5em;
+}

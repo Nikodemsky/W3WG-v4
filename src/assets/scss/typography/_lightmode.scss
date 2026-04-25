@@ -1,0 +1,143 @@
+@use '../abstracts/variables' as *;
+
+/***** Light mode *****/
+
+.lightmode {
+
+    .site {
+        color: $lightmode_default_font_color;
+    }
+
+    /**** HEADER ****/
+
+    /*** Blog navigation ***/
+
+    .custom-logo-link img {
+        filter: invert(1);
+    }
+
+    .row--header-top {
+        border-color: $lightmode_blog_navi_border;
+    }
+
+    /*** Preferences navigation ***/
+
+    .preferences-navi ul li,
+    .preferences-navi ul li a,
+    .preferences-navi ul li button {
+        color: $lightmode_default_font_color;
+    }
+
+    .preferences-navi ul li a:hover {
+        color: $lightmode_accent;
+    }
+
+    .preferences-navi__visual li,
+    .preferences-navi__font li {
+        &:hover,
+        &:hover button {
+            color: $lightmode_accent;
+        }
+    }
+
+    .preferences-navi__font li span,
+    .preferences-navi__font li button,
+    .preferences-navi__languages li:not(:last-of-type):after,
+    .preferences-navi__visual li:not(:last-of-type):after {
+        color: $lightmode_default_font_color;
+    }
+
+	.preferences-navi__social-media svg path {
+		fill: $lightmode_default_font_color;
+	}
+    
+	.preferences-navi__social-media a:hover svg path {
+		fill: $lightmode_accent;
+	}
+
+    /**** FOOTER ****/
+
+    /** Home only **/
+
+    .bottom-nav-home nav ul li a {
+        color: $lightmode_default_font_color;
+
+        &:hover {
+            color: $lightmode_accent
+        }
+    }
+
+    /**** T01: HOME ****/
+
+    /*** About me ***/
+
+    /** Accordions and Details element **/
+
+    summary:hover {
+        color: $lightmode_accent
+    }
+
+    .whoiam__col-text details a,
+    .whoiam__projects-list details a {
+        color: $lightmode_accent;
+
+        &:hover {
+            color: $lightmode_default_font_color
+        }
+    }
+
+    /**** T02: Default blogpost styling ****/
+
+    &.single article p {
+        color: $lightmode_default_font_color;
+    }
+
+    &.single article a {
+        color: $lightmode_accent;
+
+        &:hover {
+            color: $lightmode_default_font_color;
+        }
+    }
+
+    .post__txt--green {
+        color: #136509;
+    }
+
+    .post__hr {
+        background-color: $lightmode_default_font_color;
+    }
+
+    &.single article details {
+        border: 1px solid $lightmode_default_code_border;
+        background: $lightmode_post_details_acc_bg;
+    }
+
+    &.single article details summary {
+        color: $lightmode_accent;
+
+        &:hover {
+            color: $lightmode_default_font_color;
+        }
+    }
+
+    /**** T03: Prism overrides for light mode ****/
+
+    .token.important, 
+    .token.regex, 
+    .token.variable {
+        color: $lightmode_accent;
+    }
+
+    &.single article p > code {
+        text-shadow: none !important;
+    }
+
+    &.single article p > code .language-css .token.string, 
+    &.single article p > code .style .token.string, 
+    &.single article p > code .token.entity, .token.operator, 
+    &.single article p > code .token.url {
+        background: transparent;
+    }
+
+}

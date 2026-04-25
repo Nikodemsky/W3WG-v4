@@ -1,0 +1,103 @@
+@use '../abstracts/variables' as *;
+
+/**** Header ****/
+
+/*** Preferences navigation ***/
+
+.preferences-navi {
+	position: fixed;
+	left: 2vw; bottom: 2vw;
+	z-index: 2;
+}
+
+@media (min-resolution: 1.1dppx), (max-width: 1599px) {
+	.single {
+		.preferences-navi {
+			background: rgba(0, 0, 0, 0.2);
+			border-radius: 16px;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
+			padding: 0.5em;
+		}
+	}
+}
+
+.preferences-navi ul {
+	list-style: none;
+	padding-left: 0;
+	display: flex;
+}
+
+.preferences-navi ul:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+.preferences-navi__languages li:not(:last-of-type):after,
+.preferences-navi__visual li:not(:last-of-type):after {
+    content: '/';
+    pointer-events: none;
+}
+
+.preferences-navi__visual li:not(:last-of-type):after {
+    margin: 0 3px;
+}
+
+.preferences-navi__languages li:not(:last-of-type):after {
+	margin: 0 3px 0 0;
+}
+
+.preferences-navi ul li button {
+	padding: 0;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+/** Social media **/
+
+.preferences-navi__social-media li:not(:last-of-type) {
+	margin-right: 5px;
+}
+
+.preferences-navi__social-media--margin-plus {
+	padding-bottom: 2px;
+}
+
+.preferences-navi__social-media svg path {
+	fill: $darkmode_default_font_color;
+}
+
+.preferences-navi__social-media a:hover svg path {
+    fill: $hover_accent;
+}
+
+/** Font accessibility **/
+
+.preferences-navi__font .scale:before {
+	content: '\005B';
+}
+
+.preferences-navi__font .scale:after {
+	content: '\0025 \005D';
+}
+
+.preferences-navi__font .scale {
+	opacity: 0;
+	pointer-events: none;
+	display: inline-flex;
+}
+
+.preferences-navi__font:hover .scale {
+	opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.preferences-navi__font .scale {
+		transform: translateX(-5px);
+	}
+
+	.preferences-navi__font:hover .scale {
+		transform: translateX(0);
+	}
+}

@@ -1,0 +1,103 @@
+@use '../abstracts/variables' as *;
+
+/***** Accessibility *****/
+
+$font-scales: (
+    "a-font-large":  1.25,
+    "a-font-xlarge": 1.50,
+    "a-font-xxlarge": 2.00,
+);
+
+@each $class, $scale in $font-scales {
+    .#{$class} {
+
+        .container--small {
+            max-width: calc(min(calc(100% - 60px), #{$container_width-small}) * #{$scale});
+        }
+        .container--mid {
+            max-width: calc(min(calc(100% - 60px), #{$container_width-mid}) * #{$scale});
+        }
+
+        .preferences-navi__social-media svg {
+		    width: calc(20px * #{$scale}); height: calc(20px * #{$scale});
+        }
+
+        /*** HEADER ***/
+
+        .preferences-navi ul li,
+        .preferences-navi ul li a,
+        .preferences-navi ul li button {
+            font-size: calc(#{$preferences_text} * #{$scale});
+        }
+
+        /*** FOOTER ***/
+
+        /** Home only **/
+
+        .bottom-nav-home nav ul li a {
+            font-size: calc(#{$home_bottom_nav} * #{$scale});
+        }
+
+        /*** T01: HOME ***/
+
+        &.page-template-template-home p {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+            line-height: calc(#{$home_paragraphs_lineheight} * #{$scale});
+        }
+
+        /** Intro **/
+
+        .claim__intro h1 {
+            font-size: calc(#{$home_intro_header} * #{$scale});
+        }
+
+        .claim .simple-btn {
+            font-size: calc(#{$default_button_text} * #{$scale});
+        }
+
+        /** About me **/
+
+        .whoiam__projects-header,
+        .whoiam__aboutme-header {
+            font-size: calc(#{$aboutme_headers} * #{$scale});
+        }
+
+        .whoiam > .simple-btn {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+            line-height: calc(#{$home_paragraphs_lineheight} * #{$scale});
+        }
+
+        /* Accordions and Details element */
+
+        .whoiam__col-text details summary {
+            font-size: calc(#{$aboutme_headers} * #{$scale});
+        }
+
+        summary {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+            line-height: calc(#{$home_paragraphs_lineheight} * #{$scale});
+        }
+
+        .whoiam__projects-list details a {
+            font-size: calc(#{$home_paragraphs} * #{$scale});
+            line-height: calc(#{$home_paragraphs_lineheight} * #{$scale});
+        }
+
+        details {
+            padding-block: calc(0.25em * #{$scale});
+        }
+    }
+}
+
+/*** Extra large exclusive ***/
+
+.a-font-xxlarge {
+    @media (1025px <= width <= 1440px) {
+        .container--xxl-padded {
+            padding: 0 30px;
+        }
+    }
+    .container--xxl-keep-mid {
+        max-width: calc(min(calc(100% - 60px), #{$container_width-mid}) * 1.40);
+    }
+}

@@ -1,0 +1,88 @@
+@use '../abstracts/variables' as *;
+
+/**** FOOTER ****/
+
+.footer--on-blog {
+    padding-block: 5em 5em;
+}
+
+/*** Top row ***/
+
+.footer__top-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; grid-template-rows: 1fr;
+    grid-column-gap: 0px; grid-row-gap: 0px;
+}
+
+.footer__share-on { justify-self: start; }
+.footer__go-up { justify-self: center; }
+.footer__update-time { justify-self: end; }
+
+/** Sharing module **/
+
+.footer__share-on {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer__share-on ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 0.6em;
+    display: inline-flex; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer__share-on ul li {
+    display: inline-flex;
+}
+
+.footer__share-on ul li {
+    margin: 0 0.2em;
+}
+
+.footer__share-on ul li button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    height: 1.3em; width: 1.55em;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+
+    &:hover svg path {
+        fill: $hover_accent !important
+    }
+}
+
+.footer__share-on ul li button svg {
+    height: 100%; width: auto;
+}
+
+.footer__share-on ul li button svg path {
+    fill: $white;
+}
+
+/* Go up */
+
+.footer__go-up:hover svg {
+    stroke: $hover_accent
+}
+
+/*** Bottom row ***/
+
+.footer__bottom-grid--top-border {
+    border-top: 1px solid $default_code_border;
+    padding-top: 0.7em;
+    margin-top: 0.7em;
+}
+
+.footer__privacy-policy {
+    color: $darkmode_default_font_color;
+
+    &:hover {
+        color: $hover_accent
+    }
+}

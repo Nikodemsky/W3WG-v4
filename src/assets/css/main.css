@@ -49,12 +49,6 @@ h1, h2, h3, h4, h5, h6 {
 /** Font sizes - variables **/
 /** Font variables **/
 /*** Utilities ***/
-/* Splide fix */
-/*.splide__list{display: flex}*/
-/* CF7 fix */
-/*.wpcf7-spinner{position:absolute!important}
-.wpcf7 .ajax-loader{position:absolute;right:0}
-.wpcf7 .wpcf7-submit:disabled{cursor:not-allowed!important;opacity:.5}*/
 /* Normalization custom fixes */
 html, body {
   max-width: 100%;
@@ -124,7 +118,7 @@ a:focus:not(:focus-visible) {
     width: 100%;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (768px <= width <= 1024px) and (orientation: portrait) {
   .text--tablet-center {
     text-align: center;
   }
@@ -195,7 +189,7 @@ a:focus:not(:focus-visible) {
     align-items: center;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (768px <= width <= 1024px) and (orientation: portrait) {
   .row--tablet-col {
     flex-direction: column;
   }
@@ -216,7 +210,7 @@ a:focus:not(:focus-visible) {
     display: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (768px <= width <= 1024px) {
   .hidden--tablet {
     display: none !important;
   }
@@ -678,6 +672,10 @@ summary:hover {
   text-align: right;
 }
 
+.single article aside small {
+  display: block;
+}
+
 /**** T02: Default blogpost styling ****/
 .single article {
   container-type: inline-size;
@@ -688,7 +686,8 @@ summary:hover {
 }
 
 .single article p,
-.single article ul:not(.plugins-list) li {
+.single article ul:not(.list-reset) li,
+.single article ol:not(.list-reset) li {
   font-size: clamp(1.125rem, 1.125rem + (100cqi - 320px) * 1.6 / (1200 - 320), 1.225rem);
   line-height: normal;
   font-weight: 300;
@@ -717,6 +716,11 @@ summary:hover {
 
 .post__txt--bold-header {
   font-weight: 500;
+}
+
+.post__txt--underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .single article details summary {
@@ -966,7 +970,7 @@ summary:hover {
 }
 
 /*** Extra large exclusive ***/
-@media (min-width: 1025px) and (max-width: 1440px) {
+@media (1025px <= width <= 1440px) {
   .a-font-xxlarge .container--xxl-padded {
     padding: 0 30px;
   }
@@ -1162,12 +1166,6 @@ code.inline-code-block {
 
 .inline-code-block--margin-between {
   margin: 0 0.5em;
-}
-
-code[class*=language-],
-pre[class*=language-] {
-  /* font-size: inherit; */
-  /* line-height: normal; */
 }
 
 /**** Header ****/
@@ -1620,6 +1618,25 @@ pre[class*=language-] {
   margin-block-end: 1.25em;
 }
 
+.post__txt--spaced-ol li:not(:last-of-type),
+.post__txt--spaced-ul li:not(:last-of-type) {
+  margin-block-end: 0.45em;
+}
+
+.post__txt--spaced-picture {
+  margin-top: 0.3em;
+}
+
+.post-txt--contained-block {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.post-txt--block-margin-btm {
+  margin-bottom: 0.3em;
+}
+
 /* Headers with ornaments */
 .starred-header,
 .lbulbed-header,
@@ -1654,6 +1671,21 @@ pre[class*=language-] {
   width: 1.1em;
   height: 1.1em;
   background: url(../../assets/svg/beware.svg) no-repeat center;
+}
+
+.yellow-header-checkmark {
+  position: relative;
+}
+
+.yellow-header-checkmark:before {
+  content: "";
+  width: 20px;
+  height: 17px;
+  background: url(../../assets/png/check-mark-white.png) no-repeat center;
+  background-size: contain;
+  display: inline-flex;
+  position: relative;
+  margin-right: 0.25em;
 }
 
 /* Plus - minus list */
@@ -1736,7 +1768,8 @@ pre[class*=language-] {
   margin-top: 1em;
 }
 
-.single article .plugins-wrapper__outro *:not(.post__hr) {
+.single article .plugins-wrapper__outro *:not(.post__hr),
+.single article .dlist__outro *:not(.post__hr) {
   margin-block-start: 1em;
 }
 
@@ -1745,7 +1778,13 @@ pre[class*=language-] {
   padding: 2.5em 0 0 0;
 }
 
-.plugins-list__single:after {
+.dlist--no-styling {
+  list-style-type: none;
+  padding: 1em 0 0 0;
+}
+
+.plugins-list__single:after,
+.dlist__single:after {
   content: "";
   width: 100%;
   height: 1px;
@@ -1759,21 +1798,34 @@ pre[class*=language-] {
   opacity: 0.5;
 }
 
-.plugins-list__description p {
+.dlist__single:after {
+  margin-bottom: 1.5em;
+}
+
+.plugins-list__description p,
+.dlist__description p,
+.dlist-wrapper__outro p {
   margin-block-end: 1em;
 }
 
-.plugins-list__single picture {
+.plugins-list__single picture,
+.dlist__single picture {
   width: -moz-fit-content;
   width: fit-content;
   margin-bottom: 0.5em;
 }
 
-.plugins-list__description {
+.dlist__single picture {
   margin-top: 1em;
 }
 
-.plugins-list__description details {
+.plugins-list__description,
+.dlist__description {
+  margin-top: 1em;
+}
+
+.plugins-list__description details,
+.dlist__description details {
   margin-bottom: 1em;
 }
 

@@ -1,0 +1,109 @@
+@use '../abstracts/variables' as *;
+
+/**** HEADER ****/
+
+/*** Preferences navigation ***/
+
+.preferences-navi ul li,
+.preferences-navi ul li a,
+.preferences-navi ul li button {
+    font-size: $preferences_text;
+    text-transform: uppercase;
+    color: $darkmode_default_font_color;
+    font-family: $secondary_font_type;
+    letter-spacing: 0.5px;
+}
+
+.preferences-navi ul li a:hover {
+  color: $hover_accent;
+}
+
+.preferences-navi ul li.current a,
+.preferences-navi__visual li[data-current-visual-mode="1"] span,
+.preferences-navi__visual li[data-current-visual-mode="1"] button {
+  text-decoration: underline;
+}
+
+.preferences-navi__visual li,
+.preferences-navi__font li {
+  cursor: pointer;
+  
+  &:hover,
+  &:hover button {
+    color: $hover_accent;
+  }
+
+  &::target-text {
+    background: transparent;
+  }
+}
+
+.preferences-navi__font li span,
+.preferences-navi ul li button {
+  color: $darkmode_default_font_color;
+}
+
+.preferences-navi ul li button {
+	text-transform: uppercase;
+}
+
+
+.preferences-navi__languages li:not(:last-of-type):after,
+.preferences-navi__visual li:not(:last-of-type):after {
+  color: $darkmode_default_font_color;
+}
+
+.a-font-large {
+  .preferences-navi ul li,
+  .preferences-navi ul li a,
+  .preferences-navi ul li button {
+    font-size: calc(#{$preferences_text} * 1.25);
+  }
+}
+
+.a-font-xlarge {
+  .preferences-navi ul li,
+  .preferences-navi ul li a,
+  .preferences-navi ul li button {
+      font-size: calc(#{$preferences_text} * 1.50);
+  }
+}
+
+/** Main menu **/
+
+.top-navigation ul li a {
+  font-family: $secondary_font_type;
+  font-weight: $default_font-weight_headers;
+  color: $darkmode_default_font_color;
+  font-size: $main_menu;
+
+  &:hover {
+    color: $hover_accent;
+  }
+}
+
+/* Blog categories */
+
+.categories-list li a {
+  font-size: $categories;
+  color: $hover_accent;
+
+  &:hover {
+    color: $darkmode_default_font_color;
+  }
+}
+
+/*** FOOTER ***/
+
+/** Home only **/
+
+.bottom-nav-home nav ul li a {
+    font-family: $secondary_font_type;
+    font-size: $home_bottom_nav;
+    color: $darkmode_default_font_color;
+    font-weight: 600;
+
+    &:hover {
+      color: $hover_accent;
+    }
+}
