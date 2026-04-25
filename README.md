@@ -27,7 +27,7 @@ Czwarta wersja witryny w3wg.com
 23. Poprawa Accessibility (WCAG), włączając m.in.:
 * Dodanie opcji powiększenia fonta (dostepność/WCAG)
 * Poprawa kontrastów pomiędzy kolorami
-* Podamiana dynamicznych elementów typu accordion (kodowanych domyślnie poprzed elementy typu div) na semantyczne, typu <details> (w przyszłości, kiedy zostanie powszechnie wprowadzona obsługa interpolate-size dla przeglądarek innych, niż chromium, to wyłączenie również js z obsługi)
+* Podamiana dynamicznych elementów typu accordion (kodowanych domyślnie poprzed elementy typu div) na semantyczne, typu &#60;details&#62; (w przyszłości, kiedy zostanie powszechnie wprowadzona obsługa interpolate-size dla przeglądarek innych, niż chromium, to wyłączenie również js z obsługi)
 * Poprawa widoczności klikalnych linków
 * Poprawa widoczności elementów, które można przełączać klawiaturą (:focus)
 * Poprawa ułożenia elementów na powiększeniach do 200%
