@@ -1,4 +1,12 @@
-<footer class="footer <?php if (!is_front_page()) : echo 'footer--on-blog'; endif; ?>">
+<footer 
+	class="footer 
+	<?php
+		echo match(true) {
+			is_category(), is_home(), is_single() => 'footer--on-blog',
+			is_404() => 'footer--on-error-page',
+			default => ''
+		};
+	?>">
 	<div class="container">
 
     <?php

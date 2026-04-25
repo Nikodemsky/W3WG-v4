@@ -10,22 +10,14 @@ function loadk_scripts() {
     // Inits and imports
     wp_enqueue_script( 'main', $theme_dir.'/assets/js/main.min.js', array(), '1.0', array('strategy' =>'defer','in-footer'=>true));
 
-    // Smoothscroll - only as fallback/alternative to browser's native scroll-behaviour:smooth
-    //wp_enqueue_script( 'scroll-to-id', $theme_dir . '/assets/js/scrolltoid.js', array(), '', true );
-    /* use as: onclick="smoothScrollToId('your-section-id', 500, 30); return false;" on <a> elements;
-    first parameter is ID, second is duration and third is offset */
-
-    // Splide - Home
-    /*if (is_home()) {
-        wp_enqueue_script( 'splide-js', $theme_dir . '/assets/splide/splide.min.js', array(), '', false );
-        wp_enqueue_style( 'splide-css', $theme_dir . '/assets/splide/splide.min.css' );
-        wp_enqueue_style( 'splide-theme-css', $theme_dir . '/assets/splide/splide-default.min.css' );
-        wp_enqueue_script( 'splide-tm', $theme_dir . '/assets/js/splide-home.js', array(), '', true );
-    }*/
-
     // Prism JS
     if (is_singular('post') && get_field('prismjs_check', $q_id)) {
         wp_enqueue_script( 'prism', $theme_dir . '/assets/js/libs/prism.js', array(), '1.30.0', array('strategy' =>'defer','in-footer'=>true));
+    }
+
+    // Matrix
+    if (is_404()) {
+        wp_enqueue_script( 'matrix-dark', $theme_dir . '/assets/js/libs/matrix.js', array(), '', array('strategy' =>'defer','in-footer'=>true));
     }
     
 }

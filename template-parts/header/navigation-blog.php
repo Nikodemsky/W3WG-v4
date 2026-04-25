@@ -18,7 +18,7 @@
         <!-- Categories and blog title / Lista kategorii i nazwa bloga -->
         <div class="row row--wrap row--justify-between row--align-middle row--header-bottom">
 
-            <?php if (is_category() || is_home()) : ?>
+            <?php if (is_category() || is_home()) : // Category and blog home check ?>
 
                 <ul class="categories-list" role="navigation" aria-label="<?php esc_html_e( 'Lista kategorii bloga', 'wg-blank' ); ?>">
                     <?php wp_list_categories(array('title_li' => '','order' => 'DESC', 'use_desc_for_title' => 1)); ?>	
@@ -26,7 +26,7 @@
 
                 <h1 class="blog-title"><?php esc_html_e('Blog','wg-blank'); ?></h1>
 
-            <?php elseif (is_page() && !is_page_template()) : ?>
+            <?php elseif (is_page() && !is_page_template()) : // Check for default page template ?>
 
                 <h1 class="blog-title blog-title--to-right"><?php echo get_the_title(); ?></h1>
 

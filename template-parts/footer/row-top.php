@@ -12,75 +12,22 @@ $theme_dir = get_stylesheet_directory_uri();
         <span><?php esc_html_e( 'Podziel się na: ', 'wg-blank' ); ?></span>
         <ul aria-label="<?php esc_html_e( 'Lista serwisów, na których można się podzielić wpisem - dzielenie się dwoma kliknięciami', 'wg-blank' ); ?>">
 
-            <?php
+        <?php
 
-            // Facebook
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'Facebook',
-                    'icon' => 'fb2.svg',
-                    'width' => 13,
-                    'height' => 23,
-                    'data-sharer' => 'facebook'
-                )
-            );
+        $share_networks = [
+            ['label' => 'Facebook', 'icon' => 'fb2.svg', 'width' => 13, 'height' => 23, 'data-sharer' => 'facebook'],
+            ['label' => 'Linkedin', 'icon' => 'lin.svg', 'width' => 23, 'height' => 23, 'data-sharer' => 'linkedin'],
+            ['label' => 'X / Twitter','icon' => 'x.svg', 'width' => 22, 'height' => 21, 'data-sharer' => 'twitter'],
+            ['label' => 'Bluesky', 'icon' => 'bluesky.svg', 'width' => 25, 'height' => 22, 'data-sharer' => 'bluesky'],
+            ['label' => 'Threads', 'icon' => 'threads.svg', 'width' => 22, 'height' => 25, 'data-sharer' => 'threads'],
+            ['label' => 'Reddit', 'icon' => 'reddit.svg', 'width' => 25, 'height' => 21, 'data-sharer' => 'reddit'],
+        ];
 
-            // Linkedin
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'Linkedin',
-                    'icon' => 'lin.svg',
-                    'width' => 23,
-                    'height' => 23,
-                    'data-sharer' => 'linkedin'
-                )
-            );
+        foreach ($share_networks as $network) {
+            get_template_part('template-parts/footer/block', 'share', $network);
+        }
 
-            // X
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'X / Twitter',
-                    'icon' => 'x.svg',
-                    'width' => 22,
-                    'height' => 21,
-                    'data-sharer' => 'twitter'
-                )
-            );
-
-            // Bluesky
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'Bluesky',
-                    'icon' => 'bluesky.svg',
-                    'width' => 25,
-                    'height' => 22,
-                    'data-sharer' => 'bluesky'
-                )
-            );
-
-            // Threads
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'Threads',
-                    'icon' => 'threads.svg',
-                    'width' => 22,
-                    'height' => 25,
-                    'data-sharer' => 'threads'
-                )
-            );
-
-            // Reddit
-            get_template_part( 'template-parts/footer/block', 'share',
-                array( // All required
-                    'label' => 'Reddit',
-                    'icon' => 'reddit.svg',
-                    'width' => 25,
-                    'height' => 21,
-                    'data-sharer' => 'reddit'
-                )
-            );
-
-            ?>
+        ?>
 
         </ul>
     </div>

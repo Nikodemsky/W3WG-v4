@@ -2,8 +2,13 @@
 
 /**** FOOTER ****/
 
-.footer--on-blog {
-    padding-block: 5em 5em;
+footer {
+    &.footer--on-blog {
+        padding-block: 5em 5em;
+    }
+    &.footer--on-error-page .footer__bottom-grid {
+        margin-top: 0;
+    }
 }
 
 /*** Top row ***/

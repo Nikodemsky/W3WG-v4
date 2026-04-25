@@ -1366,6 +1366,15 @@ summary:hover {
 .lightmode.single article p > code .language-css .token.string, .lightmode.single article p > code .style .token.string, .lightmode.single article p > code .token.entity, .lightmode .token.operator, .lightmode.single article p > code .token.url {
   background: transparent;
 }
+.lightmode {
+  /**** T05: Styling for 404 error page ****/
+}
+.lightmode .matrix--dark {
+  opacity: 0 !important;
+}
+.lightmode .matrix--light {
+  opacity: 1 !important;
+}
 
 /** Default buttons **/
 .simple-btn {
@@ -1374,6 +1383,12 @@ summary:hover {
   position: relative;
   z-index: 1;
   padding-block: 0.5em;
+}
+.simple-btn.simple-btn--bigger-font {
+  font-size: x-large;
+}
+.simple-btn.simple-btn--transparent-bg {
+  background: transparent;
 }
 
 .simple-btn:hover {
@@ -1540,8 +1555,11 @@ code.inline-code-block {
   }
 }
 /**** FOOTER ****/
-.footer--on-blog {
+footer.footer--on-blog {
   padding-block: 5em 5em;
+}
+footer.footer--on-error-page .footer__bottom-grid {
+  margin-top: 0;
 }
 
 /*** Top row ***/
@@ -2135,4 +2153,46 @@ code.inline-code-block {
 /**** T04: Default page template styling ****/
 .blog-title--to-right {
   margin-left: auto;
+}
+
+/**** T05: Styling for 404 error page ****/
+canvas {
+  display: block;
+} /* Required for matrix canvas */
+.error404 canvas {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.error404 .default-page-wrapper {
+  position: relative;
+}
+
+.default-page-wrapper--marginoff {
+  margin-top: -15px;
+}
+
+.error-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-block: 13em;
+}
+
+.error-wrap__addon {
+  padding-block: 2em;
+}
+
+.matrix--dark {
+  opacity: 1 !important;
+}
+
+.matrix--light {
+  opacity: 0 !important;
 }/*# sourceMappingURL=main.css.map */

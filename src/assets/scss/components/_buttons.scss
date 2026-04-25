@@ -9,6 +9,14 @@
     position: relative;
     z-index: 1;
     padding-block: 0.5em;
+
+    &.simple-btn--bigger-font {
+        font-size: x-large;
+    }
+
+    &.simple-btn--transparent-bg {
+        background: transparent;
+    }
 }
 
 .simple-btn:hover {

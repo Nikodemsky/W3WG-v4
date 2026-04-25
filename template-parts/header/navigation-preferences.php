@@ -8,27 +8,14 @@
 
         <?php
 
-        // Github
-        get_template_part(
-            'template-parts/header/block',
-            'sm-href',
-            array(
-                'smh_url' => 'https://github.com/Nikodemsky', // required
-                'smh_title' => 'Przekierowanie do profilu Github',
-                'smh_icon' => 'smhref-github.svg', // required
-            )
-        );
+        $priv_sm = [
+            ['smh_url' => 'https://github.com/Nikodemsky','smh_title' => 'Przekierowanie do profilu Github','smh_icon' => 'smhref-github.svg',],
+            ['smh_url' => 'https://www.linkedin.com/in/wg-w3wg/','smh_title' => 'Przekierowanie do profilu Linkedin','smh_icon' => 'smhref-linkedin.svg',],
+        ];
 
-        // Linkedin
-        get_template_part(
-            'template-parts/header/block',
-            'sm-href',
-            array(
-                'smh_url' => 'https://www.linkedin.com/in/wg-w3wg/', // required
-                'smh_title' => 'Przekierowanie do profilu Linkedin',
-                'smh_icon' => 'smhref-linkedin.svg', // required
-            )
-        );
+        foreach ($priv_sm as $sm) {
+            get_template_part('template-parts/header/block', 'sm-href', $sm);
+        }
 
         ?>
 

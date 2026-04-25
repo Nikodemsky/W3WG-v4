@@ -40,28 +40,6 @@ add_action( 'wp_enqueue_scripts', 'wg_styles' );
 
 /*********** CUSTOM FUNCTIONS ***********/
 
-// Removes categories and tags from blogposts
-/*function unregister_default_categories_taxonomy() {
-    unregister_taxonomy_for_object_type('category', 'post');
-    unregister_taxonomy_for_object_type('post_tag', 'post');
-}
-add_action('init', 'unregister_default_categories_taxonomy');*/
-
-// Remove "no taxonomy" for radio taxonomy plugin
-/*add_filter( 'radio_buttons_for_taxonomies_no_term_grupa', '__return_false' );*/
-
-// Register custom nav menus
-/*function add_nav_menus() {
-    register_nav_menus( array(
-        'header-helpers'=> __( 'Helper menu - header', 'wg-blank' ),
-        'footer-menu'=> __( 'Footer menu', 'wg-blank' ),
-    ));
-}
-add_action('init', 'add_nav_menus');*/
-
-// Remove <p> and <br/> from Contact Form 7
-//add_filter('wpcf7_autop_or_not', '__return_false');
-
 // Custom Sublanguage lang switcher
 add_action('sublanguage_custom_switch', 'sl_custom_switch', 10, 2);
 
