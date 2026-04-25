@@ -1,7 +1,11 @@
 <?php 
 
+if (function_exists('get_field')) { // check for ACF plugin
+
 // ACF vars
 $claim_header_content = get_field_escaped('home_claim_txt', '', true, null);
+
+}
 
 ?>
 
