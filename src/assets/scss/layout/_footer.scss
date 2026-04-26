@@ -3,7 +3,8 @@
 /**** FOOTER ****/
 
 footer {
-    &.footer--on-blog {
+    &.footer--on-blog,
+    &.footer--on-page {
         padding-block: 5em 5em;
     }
     &.footer--on-error-page .footer__bottom-grid {
@@ -57,8 +58,10 @@ footer {
     align-items: center; justify-content: center;
     cursor: pointer;
 
-    &:hover svg path {
-        fill: $hover_accent !important
+    @media (hover: hover) {
+        &:hover svg path {
+            fill: $hover_accent !important
+        }
     }
 }
 
@@ -72,8 +75,10 @@ footer {
 
 /* Go up */
 
-.footer__go-up:hover svg {
-    stroke: $hover_accent
+@media (hover: hover) {
+    .footer__go-up:hover svg {
+        stroke: $hover_accent
+    }
 }
 
 /*** Bottom row ***/
@@ -87,7 +92,10 @@ footer {
 .footer__privacy-policy {
     color: $darkmode_default_font_color;
 
-    &:hover {
-        color: $hover_accent
+    @media (hover: hover) {
+        &:hover {
+            color: $hover_accent
+        }
     }
+    
 }

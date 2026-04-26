@@ -191,3 +191,21 @@ summary {
   font-weight: $default_font-weight_headers;
   font-family: $secondary_font_type;
 }
+
+/**** T06: Styling of Blog & categories ****/
+
+.post-block__title {
+  font-family: $secondary_font_type;
+  font-size: $blogpost_headers_smaller;
+  line-height: $smaller_lineheight;
+  text-align: right;
+}
+
+.post-block__href,
+.post-block__href * {
+  color: $darkmode_default_font_color;
+}
+
+.post-block__href:hover .post-block__title {
+  color: $hover_accent;
+}

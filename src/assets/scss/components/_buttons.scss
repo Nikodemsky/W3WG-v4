@@ -17,18 +17,24 @@
     &.simple-btn--transparent-bg {
         background: transparent;
     }
-}
 
-.simple-btn:hover {
-    color: $hover_accent;
+    @media (hover: hover) {
+        &:hover {
+            color: $hover_accent;
+        }
+    }
+    
 }
 
 @scope (.lightmode) {
     .simple-btn {
         background-color: $lightmode_background;
 
-        &:hover {
-            color: $lightmode_accent;
+        @media (hover: hover) {
+            &:hover {
+                color: $lightmode_accent;
+            }
         }
+
     }
 }

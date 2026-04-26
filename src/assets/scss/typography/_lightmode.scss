@@ -220,4 +220,53 @@
         opacity: 1 !important;
     }
 
+    /**** T06: Styling of Blog & categories ****/
+
+    .categories-list li a {
+        color: $lightmode_accent;
+
+        &:hover {
+            color: $lightmode_default_font_color;
+        }
+    }
+
+    .post-block__href,
+    .post-block__href * {
+        color: $lightmode_default_font_color;
+    }
+
+    .post-block__href {
+    
+        &:before,
+        &:after {
+            background: $lightmode_default_font_color;
+        }
+
+        &:hover .post-block__title {
+            color: $lightmode_accent;
+        }
+
+    }
+
+    .post-block__wrap {
+
+        &:before,
+        &:after {
+            background: $lightmode_default_font_color;
+        }
+
+    }
+
+    /** Pagination **/
+
+    .nav-links a,
+    .nav-links li span {
+        border-color: $lightmode_default_font_color;
+    }
+
+    .nav-links a:hover {
+        border-color: $lightmode_accent;
+    }
+
+
 }

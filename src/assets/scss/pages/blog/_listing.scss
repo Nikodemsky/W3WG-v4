@@ -1,0 +1,149 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as *;
+
+/**** T06: Styling of Blog & categories ****/
+
+.blogposts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,  minmax(325px, 1fr)); grid-template-rows: 1fr;
+    column-gap: 45px; row-gap: 45px;
+    list-style: none;
+    margin: 0;
+    padding: 4em 0;
+    grid-auto-flow: dense;
+}
+
+.post-block__href {
+    position: relative;
+}
+
+.post-block__wrap {
+    padding: 1em;
+    display: flex; flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.post-block__href {
+    
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        background: $darkmode_default_font_color;
+    }
+
+    &:before {
+        width: 100%; height: 1px;
+        top: 0; right: -10px;
+    }
+
+    &:after {
+        height: 100%; width: 1px;
+        right: 0; top: -10px;
+    }
+
+}
+
+.post-block__wrap {
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        background: $darkmode_default_font_color;
+    }
+
+    &:before {
+        height: 0; width: 1px;
+        left: 0; top: 0;
+        opacity: 0;
+    }
+
+    &:after {
+        width: 0; height: 1px;
+        bottom: 0; right: 0;
+        opacity: 0;
+    }
+
+}
+
+.post-block__top-meta {
+    min-height: 15em;
+}
+
+.post-block__categories {
+    list-style: none;
+    padding: .15em 0 0;
+    display: flex; flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.post-block__title {
+    display: block;
+}
+
+.site__cat-desc {
+    display: block;
+    text-align: right;
+    width: 100%;
+    margin-top: .5em;
+}
+
+/** Pagination **/
+
+.nav-links ul {
+    display: flex; flex-wrap: wrap;
+    justify-content: flex-end; align-items: center;
+    list-style: none;
+    width: fit-content;
+    margin-left: auto;
+    padding: 0;
+    gap: .5em;
+}
+
+.nav-links a,
+.nav-links li span {
+    padding: .5em 1em;
+    border: 1px solid $darkmode_default_font_color;
+}
+
+.nav-links li span.current {
+    border-style: dashed;
+}
+
+.nav-links a:hover {
+    border-color: $hover_accent;
+}
+
+/* Animation */
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+
+    .post-block__href:before,
+    .post-block__href:after,
+    .post-block__wrap:after,
+    .post-block__wrap:before {
+        @include default-transition;
+    }
+
+    .post-block__href:hover:before {
+        right: 0;
+    }
+
+    .post-block__href:hover:after {
+        top: 0;
+    }
+
+    .post-block__href:hover .post-block__wrap:after {
+        width: 100%;
+        opacity: 1;
+    }
+
+    .post-block__href:hover .post-block__wrap:before {
+        height: 100%;
+        opacity: 1;
+    }
+
+}

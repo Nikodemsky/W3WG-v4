@@ -4,6 +4,7 @@
 		echo match(true) {
 			is_category(), is_home(), is_single() => 'footer--on-blog',
 			is_404() => 'footer--on-error-page',
+			is_page() && !is_page_template() => 'footer--on-page',
 			default => ''
 		};
 	?>">

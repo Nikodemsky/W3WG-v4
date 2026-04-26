@@ -5,10 +5,10 @@
         <nav>
             <ul>
                 <li>
-                    <a href="mailto:info@w3wg.com" class="bottom-nav__redirect" title="<?php esc_html_e( 'Kontakt ze mną', 'wg-blank' ); ?>"><?php esc_html_e( 'Skontaktuj się', 'wg-blank' ); ?></a>
+                    <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#119;&#51;&#119;&#103;&#46;&#99;&#111;&#109;" class="bottom-nav__redirect" title="<?php esc_html_e( 'Kontakt ze mną', 'wg-blank' ); ?>"><?php esc_html_e( 'Skontaktuj się', 'wg-blank' ); ?></a>
                 </li>
                 <li>
-                    <a href="https://w3wg.com/blog/" class="bottom-nav__redirect" title="<?php esc_html_e( 'Przekierowanie do bloga', 'wg-blank' ); ?>" rel="next"><?php esc_html_e( 'Przejdź do bloga', 'wg-blank' ); ?></a>
+                    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="bottom-nav__redirect" title="<?php esc_html_e( 'Przekierowanie do podstrony bloga', 'wg-blank' ); ?>" rel="next"><?php esc_html_e( 'Przejdź do bloga', 'wg-blank' ); ?></a>
                 </li>
             </ul>
         </nav>
