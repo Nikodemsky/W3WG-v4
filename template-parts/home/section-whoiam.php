@@ -94,7 +94,7 @@ $addon_infos = get_field('home_addon_infos');
         </div>
     </div>
 
-    <a href="#kontakt-lub-blog" class="simple-btn" rel="nofollow" title="<?php esc_html_e( 'Przekierowanie do nawigacji', 'wg-blank' ); ?>"><?php esc_html_e( 'Co dalej?', 'wg-blank' ); ?></a>
+    <a href="#<?php esc_html_e( 'kontakt-lub-blog', 'wg-blank' ); ?>" class="simple-btn" rel="nofollow" title="<?php esc_html_e( 'Przekierowanie do nawigacji', 'wg-blank' ); ?>"><?php esc_html_e( 'Co dalej?', 'wg-blank' ); ?></a>
 
 </section>
 <?php endif; ?>

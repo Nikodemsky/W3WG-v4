@@ -6,7 +6,7 @@ if (!function_exists("wgblank_setup")):
     {
         load_theme_textdomain(
             "wg-blank",
-            get_template_directory() . "/languages"
+            get_template_directory() . "/assets/lang/"
         );
         //add_theme_support("automatic-feed-links");
         add_theme_support("title-tag");
@@ -21,14 +21,6 @@ if (!function_exists("wgblank_setup")):
             "style",
             "script",
         ]);
-        /*add_theme_support(
-            "custom-background",
-            apply_filters("wgblank_custom_background_args", [
-                "default-color" => "ffffff",
-                "default-image" => "",
-            ])
-        );*/
-        //add_theme_support("customize-selective-refresh-widgets");
         add_theme_support("custom-logo", [
             "height" => 250,
             "width" => 250,
