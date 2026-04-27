@@ -11,6 +11,11 @@
     margin: 0;
     padding: 4em 0;
     grid-auto-flow: dense;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        column-gap: 0px;
+        padding: 4em 0 2em;
+    }
 }
 
 .post-block__href {
@@ -70,6 +75,11 @@
 
 .post-block__top-meta {
     min-height: 15em;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        min-height: initial;
+        padding-bottom: 1em;
+    }
 }
 
 .post-block__categories {
@@ -89,6 +99,16 @@
     text-align: right;
     width: 100%;
     margin-top: .5em;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        text-align: left;
+    }
+}
+
+.post-block__pubdate {
+    @media (max-width: $mobiletop_breakpoint) {
+        text-align: right;
+    }
 }
 
 /** Pagination **/

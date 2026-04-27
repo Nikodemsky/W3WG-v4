@@ -5,16 +5,21 @@
 // Theme styling
 @use 'abstracts/mixins';
 @use 'abstracts/variables';
+
 @use 'base/globals';
-//@use 'base/typography';
+
 @use 'typography/index';
+
 @use 'components/buttons';
-/* @use 'components/accordions'; */
 @use 'components/details';
 @use 'components/code';
+
+@use 'themes/lightmode';
+
 @use 'layout/header';
 @use 'layout/footer';
 @use 'layout/navigation';
+
 @use 'pages/home/home';
 @use 'pages/blogpost/blogpost';
 @use 'pages/blog/listing';

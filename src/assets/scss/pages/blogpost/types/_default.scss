@@ -48,6 +48,17 @@
     margin-block-end: 1.25em;
 }
 
+@media (max-width: $mobiletop_breakpoint) {
+    /* .single article details .details-content ol {
+        padding-left: 25px;
+    } */
+    .single article ul,
+    .single article ul ul,
+    .post__txt-ul--mobile-default {
+        padding-left: 25px;
+    }
+}
+
 .post__txt--spaced-ol li:not(:last-of-type),
 .post__txt--spaced-ul li:not(:last-of-type) {
     margin-block-end: .45em;
@@ -66,6 +77,12 @@
     margin-bottom: .3em;
 }
 
+@media (max-width: $mobiletop_breakpoint) {
+    .post__txt--spaced-ol {
+        padding-left: 15px;
+    }
+}
+
 /* Headers with ornaments */
 
 .starred-header,
@@ -74,6 +91,17 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: $mobiletop_breakpoint) {
+    .danger-header abbr {
+        margin: 0 !important;
+    }
 }
 
 .starred-header:before,
@@ -88,6 +116,10 @@
 .starred-header:before {
     width: 1.3em; height: 1.2em;
     background: url(../../assets/svg/gold-star.svg) no-repeat center; 
+
+    @media (max-width: $mobiletop_breakpoint) {
+        display: block;
+    }
 }
 
 .lbulbed-header:before {
@@ -102,6 +134,12 @@
 
 .yellow-header-checkmark {
     position: relative;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .yellow-header-checkmark:before {
@@ -112,6 +150,10 @@
 	position: relative;
 	margin-right: 0.25em;
     vertical-align: middle;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        width: 1.3em; height: 1.3em;
+    }
 }
 
 /* Plus - minus list */
@@ -148,6 +190,10 @@
 .single article ul.checkmark-list,
 .page-template-default article ul.checkmark-list {
 	list-style: none;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        padding-left: 0;
+    }
 }
 
 .single article ul.checkmark-list li,
@@ -169,6 +215,13 @@
 	display: inline-flex;
 	position: absolute;
 	left: -1.875em; top: 0.313em;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        position: relative;
+        left: initial; top: initial;
+        display: block;
+        margin-bottom: .3em;
+    }
 }
 
 /* Grid helpers */

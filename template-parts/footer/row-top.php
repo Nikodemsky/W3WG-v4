@@ -8,7 +8,7 @@ $theme_dir = get_stylesheet_directory_uri();
 <div class="footer__top-grid">
 
     <!-- Share on / Podziel sie na -->
-    <div class="footer__share-on">
+    <div class="footer__share-on row--mobile row--mobile-col">
         <span><?php esc_html_e( 'Podziel się na: ', 'wg-blank' ); ?></span>
         <ul aria-label="<?php esc_html_e( 'Lista serwisów, na których można się podzielić wpisem - dzielenie się dwoma kliknięciami', 'wg-blank' ); ?>">
 

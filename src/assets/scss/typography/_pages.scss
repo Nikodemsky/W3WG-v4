@@ -90,14 +90,14 @@ summary {
   }
 }
 
-.whoiam__projects-list details summary {
-  margin-left: auto;
-}
-
 /**** T02: BLOGPOST ****/
 
 .single .page-title {
   text-align: right;
+
+  @media (max-width: $mobiletop_breakpoint) {
+    font-size: 1.5rem;
+  }
 }
 
 .single article aside small {
@@ -199,6 +199,10 @@ summary {
   font-size: $blogpost_headers_smaller;
   line-height: $smaller_lineheight;
   text-align: right;
+
+  @media (max-width: $mobiletop_breakpoint) {
+    line-height: $bigger_lineheight;
+  }
 }
 
 .post-block__href,

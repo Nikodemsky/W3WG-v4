@@ -6,6 +6,7 @@
 $container_width: 1200px;
 $container_width-mid: 720px;
 $container_width-small: 360px;
+$container_tablet_override: 550px;
 
 $default_animation_time: .35s; /* Raw number value */
 
@@ -52,23 +53,8 @@ $desktop_bottom_breakpoint: 1025px;
 
 /** Font sizes - variables **/
 
-//$p_size: @include fluid-font(__, __, __);
-//$h1_size: @include fluid-font(__, __, __);
-//$h2_size: @include fluid-font(__, __, __);
-//$h3_size: @include fluid-font(__, __, __);
-//@for $i from 4 through 5 {
-  //h#{$i} {
-    //@include fluid-font(__, __, __);
-  //}
-//}
-
-//Required sizes by empty brackets: min, base, max;
-
-/** Font variables **/
-
-// $name: fluid-font-function(__, __, __);
-// raw number values, output in rem;
-// required sizes by empty brackets: min, base, max;
+// $root_default: 16px;
+$root_mobile: 21px;
 
 $default_font-weight_paragraphs: 300;
 $default_font-weight_headers: 600;
@@ -88,6 +74,7 @@ $home_bottom_nav: fluid-font-function(1.563, 1.563, 1.700);
 
 $blogpost_paragraph: fluid-font-function(1.125, 1.125, 1.225);
 
+$bigger_lineheight: 1.3;
 $default_lineheight: 1.2;
 $smaller_lineheight: 1.1;
 $home_paragraphs_lineheight: 1.188rem;

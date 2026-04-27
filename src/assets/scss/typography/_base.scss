@@ -9,6 +9,18 @@ body {
   color: $darkmode_default_font_color;
 }
 
+@media (max-width: $mobiletop_breakpoint) {
+  :root {
+    font-size: $root_mobile;
+  }
+}
+
+@media ($tablet_bottom_breakpoint <= width <= $tablet_top_breakpoint) and (orientation:portrait){
+  :root {
+    font-size: $root_mobile;
+  }
+}
+
 /** Elements **/
 
 @for $i from 1 through 6 {

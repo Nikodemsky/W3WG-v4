@@ -28,7 +28,15 @@ $categories = get_the_category();
                 endif; ?>
             </div>
 
-            <time class="post-block__pubdate" datetime="<?php the_modified_date('Y m d'); ?>"><?php esc_html_e( 'Aktualizowano dnia: ', 'wg-blank' ); the_modified_date('j F Y'); ?></time>
+            <time 
+            class="post-block__pubdate" 
+            datetime="<?php the_modified_date('Y m d'); ?>">
+                <?php 
+                    esc_html_e( 'Aktualizowano dnia: ', 'wg-blank' );
+                    if (wp_is_mobile()) {echo '<br>';}
+                    the_modified_date('j F Y'); 
+                ?>
+            </time>
 
         </div>
 

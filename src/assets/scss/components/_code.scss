@@ -17,3 +17,9 @@ code.inline-code-block {
 .inline-code-block--margin-between {
     margin: 0 0.5em;
 }
+
+@media (max-width: $mobiletop_breakpoint) {
+    :not(pre)>code[class*=language-] {
+        word-break: break-all;
+    }
+}

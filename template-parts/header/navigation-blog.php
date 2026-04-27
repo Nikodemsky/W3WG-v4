@@ -16,7 +16,7 @@
         </div>
 
         <!-- Categories and blog title / Lista kategorii i nazwa bloga -->
-        <div class="row row--wrap row--justify-between row--align-middle row--header-bottom">
+        <div class="row row--wrap row--justify-between row--align-middle row--header-bottom row--mobile row--mobile-col-reverse row--mobile-align-start">
 
             <?php 
             

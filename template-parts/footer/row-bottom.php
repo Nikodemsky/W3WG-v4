@@ -6,8 +6,8 @@ $policy_page_id = get_option( 'wp_page_for_privacy_policy' );
 
 ?>
 
-<div class="footer__bottom-grid footer__bottom-grid--top-border">
-    <div class="row row--wrap row--justify-between">
+<div class="footer__bottom-grid footer__bottom-grid--top-border row--mobile row--mobile-col row--mobile-align-middle">
+    <div class="row row--wrap row--justify-between row--mobile-justify-center">
 
         <span class="footer__copyright">&#169; <?php esc_html_e( 'W3WG Wojciech Górski ', 'wg-blank' ); echo date("Y"); ?></span>
 

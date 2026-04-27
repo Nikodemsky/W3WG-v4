@@ -13,6 +13,12 @@
 
 /** Main menu **/
 
+@media (max-width: $mobiletop_breakpoint) {
+    .top-navigation {
+        padding-top: 1em;
+    }
+}
+
 .top-navigation ul {
     list-style: none;
     display: flex;
@@ -29,12 +35,19 @@
     list-style: none;
     display: flex;
     padding: 0;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        flex-direction: column;
+        padding-top: 1em;
+    }
 }
 
-.categories-list li:not(:last-of-type):after {
-    content: '|';
-    margin: 0 10px;
-    pointer-events: none;
+@media (min-width: $tablet_bottom_breakpoint) {
+    .categories-list li:not(:last-of-type):after {
+        content: '|';
+        margin: 0 10px;
+        pointer-events: none;
+    }
 }
 
 /* Logo */

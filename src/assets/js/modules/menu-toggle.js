@@ -1,23 +1,38 @@
-// Get the required elements
-/*const menuBtn = document.querySelector('.menu-btn');
-const closedSpan = menuBtn.querySelector('.closed');
-const openedSpan = menuBtn.querySelector('.opened');
-const navigation = document.querySelector('#slide-menu');
+(function () {
+  const NAV_CLASS = 'preferences-navi';
+  const HIDDEN_CLASS = 'preferences-navi--hidden';
+  const MIN_WIDTH = 768;
+  const MAX_WIDTH = 1024;
 
-// Add click event listener to the button
-menuBtn.addEventListener('click', toggleClasses);
+  let lastScrollY = window.scrollY;
 
-function toggleClasses() {
+  function getScrollPercent() {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    return (scrollTop / (scrollHeight - clientHeight)) * 100;
+  }
 
-  // Toggle classes for the button spans
-  closedSpan.classList.toggle('hidden');
-  openedSpan.classList.toggle('hidden');
+  function isInRange() {
+    const w = window.innerWidth;
+    return w >= MIN_WIDTH && w <= MAX_WIDTH;
+  }
 
-  // Toggle the 'visible' class for the navigation
-  navigation.classList.toggle('visible');
+  function onScroll() {
+    if (!isInRange()) return;
 
-  // Accessibility
-  navigation.toggleAttribute('intert','');
-  menuBtn.toggleAttribute('aria-expanded-true','');
+    const nav = document.querySelector(`.${NAV_CLASS}`);
+    if (!nav) return;
 
-}*/
+    const scrollPercent = getScrollPercent();
+    const scrollingDown = window.scrollY > lastScrollY;
+
+    if (scrollPercent >= 50 && scrollingDown) {
+      nav.classList.add(HIDDEN_CLASS);
+    } else if (scrollPercent < 50 || !scrollingDown) {
+      nav.classList.remove(HIDDEN_CLASS);
+    }
+
+    lastScrollY = window.scrollY;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();

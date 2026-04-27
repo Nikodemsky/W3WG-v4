@@ -13,15 +13,28 @@ $addon_infos = get_field('home_addon_infos');
 <?php if ($projects_list || $whoiam || $hobby) : ?>
 <section id="<?php esc_html_e( 'wiecej-informacji', 'wg-blank' ); ?>" class="whoiam">
 
-    <div class="container container--mid container--xxl-padded">
-        <div class="row row--wrap row--dir-reverse row--justify-between row--align-middle">
+    <div class="container container--mid">
+        <div class="row row--wrap row--dir-reverse row--justify-between row--align-middle row--mobile-col">
 
             <?php if ($whoiam || $hobby) : ?>
-            <div class="whoiam__col-half whoiam__col-text <?php if (!$projects_list) : echo 'whoiam__col-half--no-padding'; endif; ?>">
+            <div class="whoiam__col-half whoiam__col-text block--mobile-fullwidth text--mobile-center <?php if (!$projects_list) : echo 'whoiam__col-half--no-padding'; endif; ?>">
 
                 <?php
 
-                    if ($whoiam) : echo '<article class="whoiam__aboutme">'.$whoiam.'</article>'; endif;
+                    if ($whoiam && !wp_is_mobile()) : 
+                        echo '<article class="whoiam__aboutme"><h2 class="whoiam__aboutme-header">'.esc_html(__('Kim jestem','wg-blank')).'</h2>'.$whoiam.'</article>'; 
+                    else :
+                        get_template_part(
+                            'template-parts/home/block',
+                            'details',
+                            array(
+                                'details_title' => esc_html(__('Kim jestem','wg-blank')), // required
+                                'details_content' => $whoiam, // required
+                                'details_mhoffset' => '-75',
+                                'additional-classes' => 'row--mobile row--mobile-align-middle row--mobile-col',
+                            )
+                        );
+                    endif;
 
                     if ($addon_infos) :
                         foreach ($addon_infos as $info) :
@@ -33,6 +46,7 @@ $addon_infos = get_field('home_addon_infos');
                                     'details_title' => $info['addoninfo_single_title'], // required
                                     'details_content' => $info['addoninfo_single_content'], // required
                                     'details_mhoffset' => '-75',
+                                    'additional-classes' => 'row--mobile row--mobile-align-middle row--mobile-col',
                                 )
                             );
                         endforeach;
@@ -44,8 +58,8 @@ $addon_infos = get_field('home_addon_infos');
             <?php endif; ?>
 
             <?php if ($projects_list) : ?>
-            <div class="whoiam__col-half whoiam__col-projects <?php if (!$whoiam && !$hobby) : echo 'whoiam__col-half--no-padding'; endif; ?>">
-                <?php if ($projects_header) : echo '<h3 class="whoiam__projects-header">'.$projects_header.'</h3>'; endif; ?>
+            <div class="whoiam__col-half whoiam__col-projects block--mobile-fullwidth text--mobile-center <?php if (!$whoiam && !$hobby) : echo 'whoiam__col-half--no-padding'; endif; ?>">
+                <?php if ($projects_header) : echo '<h3 class="whoiam__projects-header text--mobile-center">'.$projects_header.'</h3>'; endif; ?>
                 <ul class="whoiam__projects-list">
                     <?php foreach ($projects_list as $post) : setup_postdata($post);
 
@@ -81,6 +95,7 @@ $addon_infos = get_field('home_addon_infos');
                                 'details_title' => $p_title, // required
                                 'details_content' => $p_combined_output, // required
                                 'details_mhoffset' => '-25',
+                                'additional-classes' => 'text--mobile-center',
                             )
                         );
                         ?>

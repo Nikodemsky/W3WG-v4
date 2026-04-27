@@ -44,6 +44,10 @@ body.lightmode {
 
 .container--small {
   max-width: min(calc(100% - 60px), $container_width-small);
+
+  @media ($tablet_bottom_breakpoint <= width <= $tablet_top_breakpoint) and (orientation:portrait){
+    max-width: min(calc(100% - 60px), $container_tablet_override);
+  }
 }
 
 .container--mid {

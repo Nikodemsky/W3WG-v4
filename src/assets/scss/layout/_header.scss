@@ -8,6 +8,31 @@
 	position: fixed;
 	left: 2vw; bottom: 2vw;
 	z-index: 2;
+
+	@media (max-width: $mobiletop_breakpoint) {
+		left: initial; bottom: initial; top: 1em; right: 1em;
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 16px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		padding: 0.5em;
+	}
+
+	@media ($tablet_bottom_breakpoint <= width <= $tablet_top_breakpoint) and (orientation:portrait){
+		left: 1em; bottom: 1em;
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 16px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		padding: 0.5em;
+	}
+
+	&.preferences-navi--hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 @media (min-resolution: 1.1dppx), (max-width: 1599px) {
@@ -31,6 +56,10 @@
 
 .preferences-navi ul:not(:last-of-type) {
     margin-bottom: 5px;
+
+	@media (max-width: $tablet_top_breakpoint) {
+		margin-bottom: 9px;
+	}
 }
 
 .preferences-navi__languages li:not(:last-of-type):after,
@@ -58,6 +87,18 @@
 
 .preferences-navi__social-media li:not(:last-of-type) {
 	margin-right: 5px;
+
+	@media (max-width: $tablet_top_breakpoint) {
+		margin-right: 8px;
+	}
+}
+
+.preferences-navi__social-media {
+	@media (max-width: $tablet_top_breakpoint) {
+		& a svg {
+			width: 1.5em; height: 1.5em;
+		}
+	}
 }
 
 .preferences-navi__social-media--margin-plus {
@@ -73,6 +114,14 @@
 }
 
 /** Font accessibility **/
+
+@media ($tablet_bottom_breakpoint <= width <= $tablet_top_breakpoint) and (orientation:portrait){
+	.preferences-navi__font {
+		display: none !important;
+		pointer-events: none;
+		visibility: hidden;
+	}
+}
 
 .preferences-navi__font .scale:before {
 	content: '\005B';

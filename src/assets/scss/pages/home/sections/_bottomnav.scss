@@ -5,9 +5,13 @@
 .bottom-nav-home {
     padding-block: 4em;
     position: relative;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        padding-block: 0em 2em;
+    }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet_bottom_breakpoint) {
     .bottom-nav-home:after {
         content: "";
         width: 1px;
@@ -19,17 +23,22 @@
         position: absolute;
         pointer-events: none;
     }
-
-    @scope (.lightmode) {
-        .bottom-nav-home:after {
-            background-color: $lightmode_default_font_color
-        }
-    }
 }
 
 .bottom-nav-home nav ul {
     list-style: none;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5em;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        flex-direction: column;
+        padding: 1em 0;
+        gap: 10px;
+    }
+
+    @media ($tablet_bottom_breakpoint <= width <= $tablet_top_breakpoint) and (orientation:portrait){
+        padding: 0 3em;
+    }
+
 }
 

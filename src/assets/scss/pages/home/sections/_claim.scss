@@ -11,6 +11,10 @@
 
 .claim__intro {
     margin-top: calc((20vh - 25px) + 42px);
+
+    @media (max-width: $mobiletop_breakpoint) {
+        margin-top: calc((14vh) + 58px);
+    }
 }
 
 .claim__intro h1 {
@@ -32,23 +36,19 @@
     display: flex; flex-direction: column; align-items: center;
 }
 
-@media (min-width: 768px) {
-    .claim__learnmore:after {
-        content: '';
-        width: 1px;
-        inset: auto 0 0 0;
-        margin: 15px auto 0;
-        height: calc(20vh - 25px);
-        background-color: $darkmode_default_font_color;
-        display: block;
-        position: relative;
-        pointer-events: none;
-    }
+.claim__learnmore:after {
+    content: '';
+    width: 1px;
+    inset: auto 0 0 0;
+    margin: 15px auto 0;
+    height: calc(20vh - 25px);
+    background-color: $darkmode_default_font_color;
+    display: block;
+    position: relative;
+    pointer-events: none;
 
-    @scope (.lightmode) {
-        .claim__learnmore:after {
-            background-color: $lightmode_default_font_color
-        }
+    @media (max-width: $mobiletop_breakpoint) {
+        height: 14vh;
     }
 }
 

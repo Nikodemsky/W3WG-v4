@@ -1,0 +1,165 @@
+@use '../abstracts/variables' as *;
+
+/***** Light mode *****/
+
+.lightmode {
+
+    /**** HEADER ****/
+
+    /*** Blog navigation ***/
+
+    .custom-logo-link img {
+        filter: invert(1);
+    }
+
+    .row--header-top {
+        border-color: $lightmode_blog_navi_border;
+    }
+
+    /*** Preferences navigation ***/
+
+	.preferences-navi__social-media svg path {
+		fill: $lightmode_default_font_color;
+	}
+    
+	.preferences-navi__social-media a:hover svg path {
+		fill: $lightmode_accent;
+	}
+
+    /**** FOOTER ****/
+
+    .footer__bottom-grid--top-border {
+        border-color: $lightmode_default_code_border;
+    }
+
+    .footer__share-on ul li button {
+        & svg path {
+            fill: $lightmode_default_font_color !important;
+        }
+        &:hover svg path {
+            fill: $lightmode_accent !important;
+        }
+    }
+
+    .footer__go-up {
+        svg {
+            stroke: $lightmode_default_font_color;
+        }
+        &:hover svg {
+            stroke: $lightmode_accent;
+        }
+    }
+
+    /**** T01: HOME ****/
+
+    .bottom-nav-home:after {
+        background-color: $lightmode_default_font_color
+    }
+
+    /*** Claim ***/
+
+    .claim__learnmore:after {
+        background-color: $lightmode_default_font_color
+    }
+
+    /*** About me ***/
+
+    .whoiam:after {
+        background-color: $lightmode_default_font_color
+    }
+
+    /**** T02: Default blogpost styling ****/
+
+    .post__hr {
+        background-color: $lightmode_default_font_color;
+    }
+
+    &.single article details {
+        border: 1px solid $lightmode_default_code_border;
+        background: $lightmode_post_details_acc_bg;
+    }
+
+    .lightmode-invert,
+    &.single article ul.checkmark-list li:before,
+    .yellow-header-checkmark:before {
+        filter: invert(1);
+    }
+
+    .starred-header:before, 
+    .lbulbed-header:before, 
+    .danger-header:before {
+        filter: brightness(0);
+    }
+
+    .plus-list li:before {
+        background: url(../../assets/svg/plus-lightm.svg) no-repeat center; background-size: contain;
+    }
+
+    .minus-list li:before {
+        background: url(../../assets/svg/minus-lightm.svg) no-repeat center; background-size: contain;
+    }
+
+    .plugins-list__single:after, 
+    .dlist__single:after,
+    .post__hr.post__hr--dashed {
+        background-image: linear-gradient(to right, $lightmode_default_font_color 33%, rgba(255,255,255,0.0001) 0%);
+    }
+
+    /* Example block */
+
+    .example-block {
+        background: $lightmode_background;
+        border: 1px solid $darkmode_background;
+    }
+
+    /**** T03: Prism overrides for light mode ****/
+
+    &.single article p > code .language-css .token.string, 
+    &.single article p > code .style .token.string, 
+    &.single article p > code .token.entity, .token.operator, 
+    &.single article p > code .token.url {
+        background: transparent;
+    }
+
+    /**** T05: Styling for 404 error page ****/
+
+    .matrix--dark {
+        opacity: 0 !important;
+    }
+
+    .matrix--light {
+        opacity: 1 !important;
+    }
+
+    /**** T06: Styling of Blog & categories ****/
+
+    .post-block__href {
+    
+        &:before,
+        &:after {
+            background: $lightmode_default_font_color;
+        }
+
+    }
+
+    .post-block__wrap {
+
+        &:before,
+        &:after {
+            background: $lightmode_default_font_color;
+        }
+
+    }
+
+    /** Pagination **/
+
+    .nav-links a,
+    .nav-links li span {
+        border-color: $lightmode_default_font_color;
+    }
+
+    .nav-links a:hover {
+        border-color: $lightmode_accent;
+    }
+
+}

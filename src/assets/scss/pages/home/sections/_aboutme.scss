@@ -12,30 +12,46 @@
     display: grid;
     grid-template-rows: 1fr auto;
     justify-items: center;
-    align-items: center
-}
+    align-items: center;
 
-@media (min-width: 768px) {
-    .whoiam:after {
-        content: '';
-        width: 1px;
-        inset: 0 0 0 0;
-        margin: 0 auto;
-        height: 100%;
-        background-color: $darkmode_default_font_color;
-        display: block;
-        position: absolute;
-        pointer-events: none;
-    }
+    @media (min-width: $tablet_bottom_breakpoint) {
 
-    @scope (.lightmode) {
-        .whoiam:after {
-            background-color: $lightmode_default_font_color
+        padding-top: 2em;
+
+        &:after {
+            content: '';
+            width: 1px;
+            inset: 0 0 0 0;
+            margin: 0 auto;
+            height: 100%;
+            background-color: $darkmode_default_font_color;
+            display: block;
+            position: absolute;
+            pointer-events: none;
         }
     }
+
+    @media (max-width: $mobiletop_breakpoint) {
+        padding-top: 3em;
+    }
+
 }
 
 /** Left column **/
+
+.whoiam__projects-list details summary {
+  margin-left: auto;
+
+  @media (max-width: $mobiletop_breakpoint) {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: $mobiletop_breakpoint) {
+    .whoiam__col-projects {
+        padding-top: 3em;
+    }
+}
 
 .whoiam__col-projects,
 .whoiam__projects-list .accordion--moreinfo {
@@ -87,4 +103,8 @@
 
 .whoiam .simple-btn {
     margin-block: 1.5em 8.5vh;
+
+    @media (max-width: $mobiletop_breakpoint) {
+        margin-block: 1.5em 1em;
+    }
 }
