@@ -42,4 +42,4 @@ function wgblank_scripts() {
     wp_enqueue_style("wgblank-style", get_stylesheet_uri(), [], _S_VERSION);
     wp_style_add_data("wgblank-style", "rtl", "replace");
 }
-add_action("wp_enqueue_scripts", "wgblank_scripts");
+add_action("get_footer", "wgblank_scripts");

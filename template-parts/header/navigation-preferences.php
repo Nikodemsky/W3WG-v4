@@ -35,6 +35,15 @@
         <li class="vm-dark" data-current-visual-mode="1"><button><?php esc_html_e( 'Ciemny', 'wg-blank' ); ?></button></li>
     </ul>
 
+    <ul
+    id="cookies-settings" 
+    class="preferences-navi__cookies"
+    aria-label="<?php esc_html_e( 'Zmiana wyborów odnośnie przetwarzania plików cookies', 'wg-blank' ); ?>">
+        <li>
+            <a href="#cookiesAndContentPolicySettings" rel="nofollow"><?php esc_html_e( 'Cookies', 'wg-blank' ); ?></a>
+        </li>
+    </ul>
+
     <!-- Accesibility - font size / Przelacznik wielkosci fonta -->
     <?php if (!wp_is_mobile()) : ?>
     <ul 

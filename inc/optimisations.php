@@ -97,3 +97,22 @@ function tax_removal() {
     unregister_taxonomy_for_object_type('post_tag', 'post');
 }
 add_action( 'init', 'tax_removal' );
+
+// Disable jquery and migrate
+function disable_jquery_and_migrate() {
+    if ( ! is_admin() ) {
+        wp_deregister_script( 'jquery-migrate' );
+        wp_deregister_script( 'jquery' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'disable_jquery_and_migrate', 100 );
+
+// Disable Gravatar
+function disable_gravatar_completely( $avatar_defaults ) {
+    return array( 'blank' => 'Blank' );
+}
+add_filter( 'avatar_defaults', 'disable_gravatar_completely' );
+
+add_filter( 'get_avatar_url', function( $url ) {
+    return false;
+});
