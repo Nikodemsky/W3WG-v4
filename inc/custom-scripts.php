@@ -41,6 +41,9 @@ function footer_style() {
         wp_enqueue_style( 'nanobox-css', $theme_dir . '/assets/css/libs/nanobox.min.css', array(), '1.0.0' );
     }
 
+    // CookieConsent
+    wp_enqueue_script_module('cookieconsent-config', $theme_dir . '/assets/js/configs/cookieconsent-config.js', );
+
 };
 add_action( 'get_footer', 'footer_style' );
 
