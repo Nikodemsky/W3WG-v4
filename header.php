@@ -27,7 +27,7 @@
         $classes[] = 'lightmode';
     }
 
-    if (isset($_COOKIE['w3wg_a-fz'])) {
+    if (isset($_COOKIE['w3wg_a-fz']) && !wp_is_mobile()) {
         match ($_COOKIE['w3wg_a-fz']) {
             '1.25' => $classes[] = 'a-font-large',
             '1.50' => $classes[] = 'a-font-xlarge',
