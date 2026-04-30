@@ -64,3 +64,89 @@ function stylesheets_handler( $html, $handle ) {
     return $html;
 }
 add_filter( 'style_loader_tag', 'stylesheets_handler', 10, 2 );
+
+// Custom handling for Consent logs
+add_action('rest_api_init', function () {
+    register_rest_route('cookieconsent/v1', '/log', [
+        'methods'             => 'POST',
+        'callback'            => 'cookieconsent_log_consent',
+        'permission_callback' => '__return_true', // Public endpoint — nonce handles security
+    ]);
+});
+
+function cookieconsent_anonymize_ip(string $ip): string {
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        // IPv4: zero out last two octets → 192.168.1.100 becomes 192.168.0.0
+        $parts = explode('.', $ip);
+        $parts[2] = '0';
+        $parts[3] = '0';
+        return implode('.', $parts);
+    }
+
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        // IPv6: expand, then zero out last 80 bits (5 groups)
+        $full = inet_ntop(inet_pton($ip));
+        $parts = explode(':', $full);
+        foreach ([3, 4, 5, 6, 7] as $i) {
+            $parts[$i] = '0000';
+        }
+        return implode(':', $parts);
+    }
+
+    return ''; // invalid IP — store nothing
+}
+
+function cookieconsent_log_consent(WP_REST_Request $request) {
+    // 1. Verify nonce
+    $nonce = $request->get_header('X-WP-Nonce');
+    if (!wp_verify_nonce($nonce, 'wp_rest')) {
+        return new WP_Error('forbidden', 'Invalid nonce', ['status' => 403]);
+    }
+
+    // 2. Sanitize inputs
+    $params           = $request->get_json_params();
+    $consent_id       = sanitize_text_field($params['consentId'] ?? '');
+    $accept_type      = sanitize_text_field($params['acceptType'] ?? '');
+    $accepted         = array_map('sanitize_text_field', (array)($params['acceptedCategories'] ?? []));
+    $rejected         = array_map('sanitize_text_field', (array)($params['rejectedCategories'] ?? []));
+
+    if (empty($consent_id) || empty($accept_type)) {
+        return new WP_Error('bad_request', 'Missing required fields', ['status' => 400]);
+    }
+
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $transient_key = 'cc_ratelimit_' . md5($ip);
+    if (get_transient($transient_key)) {
+        return new WP_Error('rate_limited', 'Too many requests', ['status' => 429]);
+    }
+    set_transient($transient_key, true, 15); // 1 request per IP per 60 seconds
+
+    // 3. Insert using prepared statements (via $wpdb->insert which handles this automatically)
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'cookie_consents';
+
+    $result = $wpdb->insert($table_name, [
+        'consent_id'          => $consent_id,
+        'accept_type'         => $accept_type,
+        'accepted_categories' => wp_json_encode($accepted),
+        'rejected_categories' => wp_json_encode($rejected),
+        //'ip_address'          => $_SERVER['REMOTE_ADDR'] ?? '',
+        'ip_address' => cookieconsent_anonymize_ip($_SERVER['REMOTE_ADDR'] ?? ''),
+        'user_agent'          => $_SERVER['HTTP_USER_AGENT'] ?? '',
+    ]);
+
+    if ($result === false) {
+        return new WP_Error('db_error', 'Could not save consent', ['status' => 500]);
+    }
+
+    return rest_ensure_response(['success' => true]);
+}
+
+add_action('wp_head', function () {
+    $json = wp_json_encode([
+        'apiUrl' => rest_url('cookieconsent/v1/log'),
+        'nonce'  => wp_create_nonce('wp_rest'),
+    ], JSON_HEX_TAG | JSON_HEX_AMP);
+
+    echo "<script>window.wpConsent = $json;</script>\n";
+});

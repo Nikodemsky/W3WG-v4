@@ -29,10 +29,11 @@ $font-scales: (
 
         /*** HEADER ***/
 
-        .preferences-navi ul li,
-        .preferences-navi ul li a,
-        .preferences-navi ul li button {
-            font-size: calc(#{$preferences_text} * #{$scale});
+        .preferences-navi ul li {
+            & a,
+            & button {
+                font-size: calc(#{$preferences_text} * #{$scale});
+            }
         }
 
         /*** FOOTER ***/
@@ -110,12 +111,14 @@ $font-scales: (
 
         /**** T02: Default blogpost styling ****/
 
-        &.single article p,
-        &.single article aside,
-        &.single article details summary,
-        &.single article ul:not(.list-reset) li,
-        &.single article ol:not(.list-reset) li {
-            font-size: calc(#{$blogpost_paragraph} * #{$scale});
+        &.single article {
+            & p,
+            & aside,
+            & details summary,
+            & ul:not(.list-reset) li,
+            & ol:not(.list-reset) li {
+                ont-size: calc(#{$blogpost_paragraph} * #{$scale});
+            }
         }
 
         @for $i from 1 through 3 {

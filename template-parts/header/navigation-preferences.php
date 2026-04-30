@@ -40,7 +40,7 @@
     class="preferences-navi__cookies"
     aria-label="<?php esc_html_e( 'Zmiana wyborów odnośnie przetwarzania plików cookies', 'wg-blank' ); ?>">
         <li>
-            <a data-cc="show-preferencesModal" rel="nofollow"><?php esc_html_e( 'Cookies', 'wg-blank' ); ?></a>
+            <button data-cc="show-preferencesModal"><?php esc_html_e( 'Cookies', 'wg-blank' ); ?></button>
         </li>
     </ul>
 

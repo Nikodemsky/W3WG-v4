@@ -1,0 +1,91 @@
+{
+    "consentModal": {
+        "title": "W3WG korzysta z plików cookies",
+        "description": "Używamy plików cookie, aby pomóc użytkownikom w sprawnej nawigacji i wykonywaniu określonych funkcji.",
+        "acceptAllBtn": "Zaakceptuj wszystko",
+        "acceptNecessaryBtn": "Odrzuć wszystko",
+        "showPreferencesBtn": "Zarządzaj poszczególnymi opcjami",
+        "footer": "<a href='https://w3wg.com/polityka-prywatnosci/' rel='privacy-policy' target='_blank'>Polityka prywatności</a>"
+    },
+    "preferencesModal": {
+        "title": "Preferencje ciasteczek",
+        "acceptAllBtn": "Zaakceptuj wszystko",
+        "acceptNecessaryBtn": "Odrzuć wszystko",
+        "savePreferencesBtn": "Zapisz ustawienia",
+        "closeIconLabel": "Zamknij okno",
+        "serviceCounterLabel": "Usługa|Usługi",
+        "sections": [
+            {
+                "title": "Twoje wybory",
+                "description": "W tym miejscu możesz zmienić konfigurację poszczególnych ciasteczek lub przetwarzania twoich informacji."
+            },
+            {
+                "title": "Niezbędne",
+                "description": "Ciasteczka niezbedne do prawidłowego funkcjonowania strony, których nie można wyłączyć.",
+
+                "linkedCategory": "CAT_NECESSARY",
+                "cookieTable": {
+                    "caption": "Tabela z listą używanych ciastek",
+                    "headers": {
+                        "name": "Ciasteczko/Nazwa",
+                        "domain": "Domena",
+                        "expires": "Wygasa",
+                        "desc": "Opis"
+                    },
+                    "body": [
+                        {
+                            "name": "cc_cookie",
+                            "domain": "location.hostname",
+                            "expires": "365 dni",
+                            "desc": "Ciasteczko zapamiętujące preferencje użytkownika odnośnie wybranych zgód na przetwarzanie."
+                        },
+                        {
+                            "name": "vm-mode",
+                            "domain": "location.hostname",
+                            "expires": "1 rok i dwa dni",
+                            "desc": "Ciasteczko zapisujące wybrany tryb wizualny (jasny/ciemny) użytkownika."
+                        },
+                        {
+                            "name": "w3wg_a-fz",
+                            "domain": "location.hostname",
+                            "expires": "1 rok i cztery dni",
+                            "desc": "Ciasteczko zapisujące wybraną wielkość fonta witryny dla użytkownika."
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Analityka",
+                "description": "Te ciasteczka będą pobierać informacje o tym jak przeglądasz witrynę. Wszystkie dane są anonimozowane i nie mogą być użyte do twojej identyfikacji.",
+                "linkedCategory": "CAT_ANALYTICS",
+                "cookieTable": {
+                    "caption": "Tabela z listą używanych ciastek",
+                    "headers": {
+                        "name": "Ciasteczko/Nazwa",
+                        "domain": "Domena",
+                        "expires": "Wygasa",
+                        "desc": "Opis"
+                    },
+                    "body": [
+                        {
+                            "name": "_ga",
+                            "domain": "location.hostname",
+                            "expires": "1 rok 1 miesiąc 4 dni",
+                            "desc": "Google Analytics ustawia ten plik cookie, aby zebrać dane dotyczące odwiedzających, sesji i kampanii oraz śledzić korzystanie przez użytkowników z witryny na potrzeby raportu analitycznego. Plik cookie przechowuje informacje w sposób zanonimizowany i przydziela użytkownikom losowo wygenerowany numer w celu identyfikacji odwiedzających."
+                        },
+                        {
+                            "name": "_gid",
+                            "domain": "location.hostname",
+                            "expires": "1 dzień",
+                            "desc": "Google Analytics ustawia ten plik cookie w celu przechowywania informacji o sposobie korzystania z witryny przez odwiedzających oraz tworzenia raportu analitycznego dotyczącego wydajności witryny. Niektóre z gromadzonych danych dotyczą liczby odwiedzających, ich pochodzenia oraz stron odwiedzanych przez nich anoniowo."
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Więcej informacji",
+                "description": "Aby otrzymać więcej informacji na temat polityki prywatności lub zarządzania ciastkami na witrynie <a href='mailto:&#105;&#110;&#102;&#111;&#64;&#119;&#51;&#119;&#103;&#46;&#99;&#111;&#109;'>skontaktuj się proszę ze mną.</a>"
+            }
+        ]
+    }
+}

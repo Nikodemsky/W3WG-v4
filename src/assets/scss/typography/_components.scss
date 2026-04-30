@@ -4,18 +4,20 @@
 
 /*** Preferences navigation ***/
 
-.preferences-navi ul li,
-.preferences-navi ul li a,
-.preferences-navi ul li button {
+.preferences-navi ul li {
+  & a,
+  & button {
     font-size: $preferences_text;
     text-transform: uppercase;
     color: $darkmode_default_font_color;
     font-family: $secondary_font_type;
     letter-spacing: 0.5px;
-}
+  }
 
-.preferences-navi ul li a:hover {
-  color: $hover_accent;
+  & a:hover,
+  & button:hover {
+    color: $hover_accent;
+  }
 }
 
 .preferences-navi ul li.current a,
@@ -51,22 +53,6 @@
 .preferences-navi__languages li:not(:last-of-type):after,
 .preferences-navi__visual li:not(:last-of-type):after {
   color: $darkmode_default_font_color;
-}
-
-.a-font-large {
-  .preferences-navi ul li,
-  .preferences-navi ul li a,
-  .preferences-navi ul li button {
-    font-size: calc(#{$preferences_text} * 1.25);
-  }
-}
-
-.a-font-xlarge {
-  .preferences-navi ul li,
-  .preferences-navi ul li a,
-  .preferences-navi ul li button {
-      font-size: calc(#{$preferences_text} * 1.50);
-  }
 }
 
 /** Main menu **/
