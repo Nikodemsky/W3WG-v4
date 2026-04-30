@@ -13,8 +13,9 @@ Czwarta wersja witryny w3wg.com
 7. [x] Optymalizacja instalacji ogólna -> migracja z CMS WordPress na fork ClassicPress (powód: ogólna optymalizacja -> wycięcie w całości Gutenberga oraz przestarzałych modułów backendowych).
 8. [ ] Optymalizacja zarządzania językami -> migracja ze wtyczki "Bogo" na "Sublanguage" (powód: Bogo jest zbyt ograniczony).
 Update: Problemy konfiguracyjne wtyczki Sublanguage, potrzeba dalszej analizy
-9. [ ] Optymalizacja zarządzania ciastkami -> migracja ze wtyczki "Pressidium Cookie Consent" na "Cookies and Content Security Policy" (powód: zbyt rzadkie aktualizacje, obciążenie prostej funkcjonalności Reactem, brak kompatybilności z forkiem ClassicPress).
-Update: Do zaktualizowania własny CSS, odpięcia natywnego arkusza + aktualizacja treści Polityki Prywatności
+9. [x] Optymalizacja zarządzania ciastkami -> migracja ze wtyczki "Pressidium Cookie Consent" na "Cookies and Content Security Policy" (powód: zbyt rzadkie aktualizacje, obciążenie prostej funkcjonalności Reactem, brak kompatybilności z forkiem ClassicPress).
+Update: Do zaktualizowania własny CSS, odpięcia natywnego arkusza + aktualizacja treści Polityki Prywatności.
+Update 2: Zmiana na CookieConsent (https://github.com/orestbida/cookieconsent/) z własną konfiguracją i zapisem logów, bez udziału wtyczek.
 10. [x] Optymalizacja wewnętrznej taksonomii blogowej (powód: obecnie dla niestandardowych wpisów jest używana oddzielna wtyczka, umożliwiająca wybór unikalnego szablonu dla wpisu blogowego - jest to niepotrzebne i można zastosować natywną, nieindeksowalną taksonomię i na jej podstawie zaimplementować unikalne szablony dla poszczególnych wpisów).
 11. [x] Delikatne poprawki wizualne, jak np. zmiany ikon social media.
 12. [x] Optymalizacja i aktualizacja skryptu podświetlania kodu (PrismJS).
