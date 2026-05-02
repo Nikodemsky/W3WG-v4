@@ -47,15 +47,10 @@ if (is_category() || is_archive()) {
 
 }
 
-// helpers
-$flags = web_lang_get_current_flags();
-
-if ($flags['page_lang_en'] ||
-    is_home() && get_field('tl_pl', $q_id) || 
-    is_category() && get_field('cat_tl_id_pl', 'category_' .$q_id) ||
-    is_page_template('page-templates/template-blog.php') && get_field('tl_pl')) {
-        $current_check_en = 'preferences-navi__en--current';
-        $aria_current_en = 'aria-current="true"';
+// Set current lang visually
+if (str_contains($_SERVER['REQUEST_URI'], '/en/')) {
+    $current_check_en = 'preferences-navi__en--current';
+    $aria_current_en = 'aria-current="true"';
 } else {
     $current_check_pl = 'preferences-navi__pl--current';
     $aria_current_pl = 'aria-current="true"';
@@ -64,7 +59,8 @@ if ($flags['page_lang_en'] ||
 ?>
 <ul
 id="languages-nav <?php echo get_queried_object_id(); ?>" 
-class="preferences-navi__languages" 
+class="preferences-navi__languages"
+data-test="<?php echo $_SERVER['REQUEST_URI']; ?>"
 aria-label="<?php esc_html_e( 'Przełącznik językowy - lista dostępnych języków', 'wg-blank' ); ?>">
     <li class="preferences-navi__en <?php echo $current_check_en; ?>">
         <a
