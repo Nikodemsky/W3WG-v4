@@ -5,3 +5,4 @@ require get_template_directory() . '/inc/lang/_iso-code.php'; // Adds ISO code c
 require get_template_directory() . '/inc/lang/_rewrite.php'; // Rewrite
 require get_template_directory() . '/inc/lang/_switch-locale.php'; // Locale switch handler
 require get_template_directory() . '/inc/lang/_helpers.php'; // Helper functions for template usage
+require get_template_directory() . '/inc/lang/_alternate.php'; // alternate links in header handling
