@@ -48,10 +48,10 @@
                     <?php 
 
                         $categorized = web_lang_get_categorized_ids();
-                        //$flags = web_lang_get_current_flags();
                         $q_id = get_queried_object_id();
+                        $is_en = str_contains($_SERVER['REQUEST_URI'], '/en/');
 
-                        if (is_category() && get_field('cat_tl_id_pl','category_'.$q_id) || is_home() && get_field('tl_pl', $q_id)) {
+                        if ($is_en) {
                             $cats_to_exclude = $categorized['has_en'];
                         } else {
                             $cats_to_exclude = $categorized['has_pl'];

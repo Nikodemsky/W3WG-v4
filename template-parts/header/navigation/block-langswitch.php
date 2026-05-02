@@ -41,7 +41,7 @@ if (is_category() || is_archive()) {
         $home_id_en = 742;
 
         [$pp_en, $pp_pl] = match(true) {
-            (bool)$en_tl_id && !(bool)$pl_tl_id  => [$en_tl_id,   $home_id],
+            (bool)$en_tl_id && !(bool)$pl_tl_id  => [$en_tl_id, $home_id],
             !(bool)$en_tl_id && (bool)$pl_tl_id  => [$home_id_en, $pl_tl_id],
             !(bool)$en_tl_id && !(bool)$pl_tl_id => [$is_en ? $current_id : $home_id_en, $is_en ? $home_id : $current_id],
             default => [$current_id, $current_id],
