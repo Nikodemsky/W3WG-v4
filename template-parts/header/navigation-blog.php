@@ -6,10 +6,28 @@
 
             <?php the_custom_logo(); ?>
 
+            <?php // checks for lang
+
+            $q_id = get_queried_object_id();
+            $flags = web_lang_get_current_flags();
+
+            if ($flags['page_lang_en'] ||
+                is_home() && get_field('tl_pl', $q_id) || 
+                is_category() && get_field('cat_tl_id_pl', 'category_' .$q_id) ||
+                is_single() && get_field('tl_en') ||
+                is_page_template('page-templates/template-blog.php') && get_field('tl_pl')) {
+                    $menu_id = 15;
+            } else {
+                $menu_id = 7;
+            }
+
+            ?>
+
             <nav class="top-navigation">
                 <?php wp_nav_menu( array(
-                    'theme_location' => 'menu-1',
+                    //'theme_location' => 'menu-1',
                     'menu_id' => 'primary-menu-header',
+                    'menu' => $menu_id,
                 )); ?>
             </nav><!-- #site-navigation -->
 
@@ -21,17 +39,29 @@
             <?php 
             
             // Category navigation
-            if (is_category() || is_home()) : ?>
+            if (is_category() || is_home() || is_page_template('page-templates/template-blog.php')) : ?>
 
                 <ul 
                 class="categories-list" 
                 role="navigation" 
                 aria-label="<?php esc_html_e( 'Lista kategorii bloga', 'wg-blank' ); ?>">
                     <?php 
+
+                        $categorized = web_lang_get_categorized_ids();
+                        //$flags = web_lang_get_current_flags();
+                        $q_id = get_queried_object_id();
+
+                        if (is_category() && get_field('cat_tl_id_pl','category_'.$q_id) || is_home() && get_field('tl_pl', $q_id)) {
+                            $cats_to_exclude = $categorized['has_en'];
+                        } else {
+                            $cats_to_exclude = $categorized['has_pl'];
+                        }
+
                         wp_list_categories(
                             array(
                                 'title_li' => '',
-                                'order' => 'DESC', 
+                                'order' => 'DESC',
+                                'exclude' => $cats_to_exclude,
                                 'use_desc_for_title' => 1
                             )
                         ); 
@@ -52,6 +82,7 @@
             $title = match(true) {
                 is_page() && !is_page_template() => get_the_title(),
                 is_home() => esc_html(__('Blog','wg-blank')),
+                is_page_template('page-templates/template-blog.php') => esc_html(__('Blog','wg-blank')),
                 is_category() => get_the_archive_title(),
                 default => ''
             };

@@ -14,6 +14,7 @@ require get_template_directory() . '/inc/comments-handler.php'; // Disables comm
 require get_template_directory() . '/inc/custom-scripts.php'; // Custom scripts handler
 // require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
 if (function_exists('get_field')) { require get_template_directory() . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
+require get_template_directory() . '/inc/lang-handling.php'; // Languages handling - no plugins
 
 /*********** HELPERS - LOGIN PAGE AND EDITOR ADDONS ***********/
 
@@ -39,20 +40,3 @@ function wg_styles() {
 add_action( 'wp_enqueue_scripts', 'wg_styles' );
 
 /*********** CUSTOM FUNCTIONS ***********/
-
-// Custom Sublanguage lang switcher
-add_action('sublanguage_custom_switch', 'sl_custom_switch', 10, 2);
-
-function sl_custom_switch($languages, $sublanguage) {
-
-?>
-<ul id="languages-nav" class="preferences-navi__languages" aria-label="<?php esc_html_e( 'Przełącznik językowy - lista dostępnych języków', 'wg-blank' ); ?>">
-<?php foreach ($languages as $language) { ?>
-    <li class="<?php echo $language->post_name; ?> <?php if ($sublanguage->current_language->ID == $language->ID) echo 'current'; ?>">
-        <a href="<?php echo $sublanguage->get_translation_link($language); ?>"><?php echo $language->post_title; ?></a>
-    </li>
-<?php } ?>
-</ul>
-<?php
-
-}

@@ -1,0 +1,86 @@
+<!-- Language switch / Przelacznik jezykowy -->
+<?php if (function_exists('get_field')) : 
+
+// Globals
+$q_id = get_queried_object_id();
+
+if (is_category() || is_archive()) {
+
+    // vars
+    $en_tl_id = get_field('cat_tl_id_en', 'category_' .$q_id);
+    $pl_tl_id = get_field('cat_tl_id_pl', 'category_' .$q_id);
+
+    $cat_en = $en_tl_id ?: $q_id;
+    $cat_pl = $pl_tl_id ?: $q_id;
+
+    // URL output
+    $en_url = get_term_link( $cat_en, 'category');
+    $pl_url = get_term_link( $cat_pl, 'category');
+
+} else {
+
+    // Globals
+    $current_id = get_the_ID();
+
+    // vars
+    if (is_home()) {
+
+        $en_tl_id = get_field('tl_en', $q_id);
+        $pl_tl_id = get_field('tl_pl', $q_id);
+
+        $pp_en = $en_tl_id ?: $q_id;
+        $pp_pl = $pl_tl_id ?: $q_id;
+
+    } else {
+
+        $en_tl_id = get_field('tl_en');
+        $pl_tl_id = get_field('tl_pl');
+
+        $pp_en = $en_tl_id ?: $current_id;
+        $pp_pl = $pl_tl_id ?: $current_id;
+
+    }
+
+    // URL output
+    $en_url = get_the_permalink($pp_en);
+    $pl_url = get_the_permalink($pp_pl);
+
+}
+
+// helpers
+$flags = web_lang_get_current_flags();
+
+if ($flags['page_lang_en'] ||
+    is_home() && get_field('tl_pl', $q_id) || 
+    is_category() && get_field('cat_tl_id_pl', 'category_' .$q_id) ||
+    is_page_template('page-templates/template-blog.php') && get_field('tl_pl')) {
+        $current_check_en = 'preferences-navi__en--current';
+        $aria_current_en = 'aria-current="true"';
+} else {
+    $current_check_pl = 'preferences-navi__pl--current';
+    $aria_current_pl = 'aria-current="true"';
+}
+
+?>
+<ul
+id="languages-nav <?php echo get_queried_object_id(); ?>" 
+class="preferences-navi__languages" 
+aria-label="<?php esc_html_e( 'Przełącznik językowy - lista dostępnych języków', 'wg-blank' ); ?>">
+    <li class="preferences-navi__en <?php echo $current_check_en; ?>">
+        <a
+        <?php echo $aria_current_en; ?>
+        hreflang="en-US"
+        href="<?php echo esc_url($en_url); ?>">
+            <?php esc_html_e( 'English', 'wg-blank' ); ?>
+        </a>
+    </li>
+    <li class="preferences-navi__pl <?php echo $current_check_pl; ?>">
+        <a
+        <?php echo $aria_current_pl; ?>
+        hreflang="pl-PL"
+        href="<?php echo esc_url($pl_url); ?>">
+            <?php esc_html_e( 'Polski', 'wg-blank' ); ?>
+        </a>
+    </li>
+</ul>
+<?php endif; ?>

@@ -130,7 +130,6 @@ function cookieconsent_log_consent(WP_REST_Request $request) {
         'accept_type'         => $accept_type,
         'accepted_categories' => wp_json_encode($accepted),
         'rejected_categories' => wp_json_encode($rejected),
-        //'ip_address'          => $_SERVER['REMOTE_ADDR'] ?? '',
         'ip_address' => cookieconsent_anonymize_ip($_SERVER['REMOTE_ADDR'] ?? ''),
         'user_agent'          => $_SERVER['HTTP_USER_AGENT'] ?? '',
     ]);
@@ -150,3 +149,29 @@ add_action('wp_head', function () {
 
     echo "<script>window.wpConsent = $json;</script>\n";
 });
+
+// removes rich text editor for blog listing template
+function remove_pages_editor() {
+    $post_id = $_GET['post'] ?? $_POST['post_ID'] ?? 0;
+
+    if (!$post_id) return;
+
+    if (get_page_template_slug($post_id) === 'page-templates/template-blog.php') {
+        remove_post_type_support('page', 'editor');
+    }
+}
+add_action('admin_init', 'remove_pages_editor');
+
+// Modifies main query, to load only posts from one taxonomy term
+function filter_blog_posts_by_lang( $query ) {
+    if ( !is_admin() && $query->is_main_query() && ( $query->is_home() || $query->is_archive() ) ) {
+        $query->set( 'tax_query', array(
+            array(
+                'taxonomy' => 'web-lang',
+                'field'    => 'slug',
+                'terms'    => 'pl',
+            ),
+        ) );
+    }
+}
+add_action( 'pre_get_posts', 'filter_blog_posts_by_lang' );

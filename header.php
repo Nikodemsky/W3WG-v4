@@ -46,7 +46,7 @@
 	<?php 
 	
 	// Blog header
-	if (!is_front_page()) {
+	if (!is_page_template('page-templates/template-home.php')) {
 		get_template_part('template-parts/header/navigation', 'blog');
 	} 
 	

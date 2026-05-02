@@ -22,7 +22,9 @@
 
 .preferences-navi ul li.current a,
 .preferences-navi__visual li[data-current-visual-mode="1"] span,
-.preferences-navi__visual li[data-current-visual-mode="1"] button {
+.preferences-navi__visual li[data-current-visual-mode="1"] button,
+.preferences-navi ul li.preferences-navi__en--current a,
+.preferences-navi ul li.preferences-navi__pl--current a {
   text-decoration: underline;
 }
 
