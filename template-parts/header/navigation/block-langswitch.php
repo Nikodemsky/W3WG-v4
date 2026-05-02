@@ -3,6 +3,7 @@
 
 // Globals
 $q_id = get_queried_object_id();
+$is_en = str_contains($_SERVER['REQUEST_URI'], '/en/');
 
 if (is_category() || is_archive()) {
 
@@ -31,6 +32,21 @@ if (is_category() || is_archive()) {
         $pp_en = $en_tl_id ?: $q_id;
         $pp_pl = $pl_tl_id ?: $q_id;
 
+    } else if (is_single()) {
+
+        $en_tl_id = get_field('tl_en');
+        $pl_tl_id = get_field('tl_pl');
+
+        $home_id = 364;
+        $home_id_en = 742;
+
+        [$pp_en, $pp_pl] = match(true) {
+            (bool)$en_tl_id && !(bool)$pl_tl_id  => [$en_tl_id,   $home_id],
+            !(bool)$en_tl_id && (bool)$pl_tl_id  => [$home_id_en, $pl_tl_id],
+            !(bool)$en_tl_id && !(bool)$pl_tl_id => [$is_en ? $current_id : $home_id_en, $is_en ? $home_id : $current_id],
+            default => [$current_id, $current_id],
+        };
+
     } else {
 
         $en_tl_id = get_field('tl_en');
@@ -48,7 +64,7 @@ if (is_category() || is_archive()) {
 }
 
 // Set current lang visually
-if (str_contains($_SERVER['REQUEST_URI'], '/en/')) {
+if ($is_en) {
     $current_check_en = 'preferences-navi__en--current';
     $aria_current_en = 'aria-current="true"';
 } else {
@@ -58,9 +74,8 @@ if (str_contains($_SERVER['REQUEST_URI'], '/en/')) {
 
 ?>
 <ul
-id="languages-nav <?php echo get_queried_object_id(); ?>" 
+id="languages-nav" 
 class="preferences-navi__languages"
-data-test="<?php echo $_SERVER['REQUEST_URI']; ?>"
 aria-label="<?php esc_html_e( 'Przełącznik językowy - lista dostępnych języków', 'wg-blank' ); ?>">
     <li class="preferences-navi__en <?php echo $current_check_en; ?>">
         <a
