@@ -12,7 +12,6 @@ require get_template_directory() . '/inc/image-sizes.php'; // Image sizes handli
 require get_template_directory() . '/inc/optimisations.php'; // Additional optimisations comments-handler
 require get_template_directory() . '/inc/comments-handler.php'; // Disables comment system
 require get_template_directory() . '/inc/custom-scripts.php'; // Custom scripts handler
-// require get_template_directory() . '/inc/exists-checks.php'; // Custom, cached checks for post existence
 if (function_exists('get_field')) { require get_template_directory() . '/inc/acf-sanitization.php'; } // ACF sanitization helper functions
 require get_template_directory() . '/inc/lang-handling.php'; // Languages handling - no plugins
 
@@ -33,7 +32,7 @@ function wg_styles() {
     $theme_dir = get_stylesheet_directory_uri();
 
     // Load compiled styles
-    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.00' );
+    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.02' );
     wp_enqueue_style( 'main-css' );
 
 }

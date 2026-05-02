@@ -8,19 +8,9 @@ if (!function_exists("wgblank_setup")):
             "wg-blank",
             get_template_directory() . "/assets/lang/"
         );
-        //add_theme_support("automatic-feed-links");
         add_theme_support("title-tag");
         add_theme_support("post-thumbnails");
         register_nav_menus(["menu-1" => esc_html__("Main menu", "wg-blank")]);
-        /* add_theme_support("html5", [
-            "search-form",
-            "comment-form",
-            "comment-list",
-            "gallery",
-            "caption",
-            "style",
-            "script",
-        ]); */
         add_theme_support("custom-logo", [
             "height" => 250,
             "width" => 250,

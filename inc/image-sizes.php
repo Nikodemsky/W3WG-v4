@@ -54,7 +54,6 @@ if (function_exists('get_field')) {
 
 /* Add custom image sizes: 
 ID, width, height, hard-crop */
-//add_image_size( 'size-1', 150, 150, false );
 add_image_size( 'plugin-image', 680, 220, true );
 
 // Make the new sizes selectable from admin ui

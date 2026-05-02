@@ -2,11 +2,15 @@
 
 ## LEGACY VERSION OF SECTION
 
+if (function_exists('get_field')) {
+
 // ACF vars
 $workscope_header = get_field_escaped('home_workscope_header');
 $workscope_content = get_field('home_workscope_txt');
 $worklocation_header = get_field_escaped('home_where_header');
 $worklocation_content = get_field('home_where_txt');
+
+}
 
 ?>
 

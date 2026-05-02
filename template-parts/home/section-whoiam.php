@@ -1,11 +1,15 @@
 <?php 
 
+if (function_exists('get_field')) {
+
 // ACF vars
 $projects_header = get_field_escaped('home_projects_header');
 $projects_list = get_field('home_projects');
 $whoiam = get_field('home_whoiam_txt');
 $hobby = get_field('home_hobby_txt');
 $addon_infos = get_field('home_addon_infos');
+
+}
 
 ?>
 

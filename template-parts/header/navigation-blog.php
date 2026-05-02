@@ -9,14 +9,9 @@
             <?php // checks for lang
 
             $q_id = get_queried_object_id();
-            $flags = web_lang_get_current_flags();
 
-            if ($flags['page_lang_en'] ||
-                is_home() && get_field('tl_pl', $q_id) || 
-                is_category() && get_field('cat_tl_id_pl', 'category_' .$q_id) ||
-                is_single() && get_field('tl_en') ||
-                is_page_template('page-templates/template-blog.php') && get_field('tl_pl')) {
-                    $menu_id = 15;
+            if (str_contains($_SERVER['REQUEST_URI'], '/en/')) {
+                $menu_id = 15;
             } else {
                 $menu_id = 7;
             }

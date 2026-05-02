@@ -5,7 +5,7 @@
 	<section class="default-page-wrapper default-page-wrapper--marginoff">
 		<div class="container">
 
-			<!-- Nie moj kod matrixa! / Matrix script is not mine! Codepen: https://codepen.io/yaclive/pen/EayLYO -->
+			<!-- Matrix script is not mine! / Nie moj kod matrixa! Codepen: https://codepen.io/yaclive/pen/EayLYO -->
 			<canvas id="matrix-light" class="matrix matrix--light"></canvas>
 			<canvas id="matrix-dark" class="matrix matrix--dark"></canvas>
 
