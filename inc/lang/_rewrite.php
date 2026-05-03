@@ -2,19 +2,6 @@
 
 function web_lang_rewrite_rules() {
 
-    // General rules — added first so they sit lower in priority
-    add_rewrite_rule(
-        '^en/(.+?)/?$',
-        'index.php?pagename=$matches[1]',
-        'top'
-    );
-
-    add_rewrite_rule(
-        '^en/([^/]+)/?$',
-        'index.php?name=$matches[1]',
-        'top'
-    );
-
     // Built-in taxonomies — added after so they sit higher in priority
     add_rewrite_rule(
         '^en/category/(.+?)/?$',
@@ -25,6 +12,19 @@ function web_lang_rewrite_rules() {
     add_rewrite_rule(
         '^en/tag/(.+?)/?$',
         'index.php?tag=$matches[1]',
+        'top'
+    );
+
+    // General rules — added first so they sit lower in priority
+    add_rewrite_rule(
+        '^en/(.+?)/?$',
+        'index.php?pagename=$matches[1]',
+        'top'
+    );
+
+    add_rewrite_rule(
+        '^en/([^/]+)/?$',
+        'index.php?name=$matches[1]',
         'top'
     );
 
@@ -120,3 +120,25 @@ function web_lang_term_link( string $link, WP_Term $term ): string {
     return $link;
 }
 add_filter( 'term_link', 'web_lang_term_link', 10, 2 );
+
+// Modify query per language
+function web_lang_filter_query( $query ) {
+
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    if ( strpos( $_SERVER['REQUEST_URI'], '/en/' ) !== false ) {
+
+        $tax_query = [
+            [
+                'taxonomy' => 'web-lang',
+                'field' => 'slug',
+                'terms' => 'en',
+            ]
+        ];
+
+        $query->set( 'tax_query', $tax_query );
+    }
+}
+add_action( 'pre_get_posts', 'web_lang_filter_query' );
