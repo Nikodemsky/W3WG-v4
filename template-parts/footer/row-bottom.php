@@ -2,7 +2,12 @@
 
 // Globals
 $theme_dir = get_stylesheet_directory_uri();
-$policy_page_id = get_option( 'wp_page_for_privacy_policy' );
+
+if (str_contains($_SERVER['REQUEST_URI'], '/en/')) {
+    $policy_page_id = 781;    
+} else {
+    $policy_page_id = get_option( 'wp_page_for_privacy_policy' );
+}
 
 ?>
 
