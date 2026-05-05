@@ -2000,14 +2000,7 @@ footer.footer--on-error-page .footer__bottom-grid {
     width: 12px;
   }
   @keyframes fadeAndResize {
-    0% {
-      opacity: 1;
-    }
-    40% {
-      opacity: 0;
-    }
     100% {
-      opacity: 0;
       width: 0px;
       height: 0px;
     }
