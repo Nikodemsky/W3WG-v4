@@ -1,4 +1,13 @@
-<nav id="<?php esc_html_e( 'preferencje', 'wg-blank' ); ?>" class="preferences-navi">
+<nav 
+id="<?php esc_html_e( 'preferencje', 'wg-blank' ); ?>" 
+class="preferences-navi"
+aria-expanded="true">
+
+    <button
+    tabindex="-1"
+    class="pref-menu-toggle"
+    title="<?php esc_html_e( 'Chowanie podręcznego menu', 'wg-blank' ); ?>">
+    </button>
 
     <?php
         get_template_part('template-parts/header/navigation/block', 'socialmedia'); // Social media

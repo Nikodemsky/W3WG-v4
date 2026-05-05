@@ -1,4 +1,4 @@
-(function () {
+/* (function () {
   const NAV_CLASS = 'preferences-navi';
   const HIDDEN_CLASS = 'preferences-navi--hidden';
   const MIN_WIDTH = 768;
@@ -35,4 +35,22 @@
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-})();
+})(); */
+
+const toggle = document.querySelector('.pref-menu-toggle');
+const nav = document.querySelector('.preferences-navi');
+const navUls = nav.querySelectorAll('ul');
+
+toggle.addEventListener('click', () => {
+  const isHidden = nav.classList.toggle('preferences-navi--hidden');
+
+  // Toggle aria-expanded on nav
+  nav.setAttribute('aria-expanded', !isHidden);
+
+  navUls.forEach(ul => {
+    ul.setAttribute('tabindex', isHidden ? '-1' : '0');
+    ul.setAttribute('aria-disabled', isHidden ? 'true' : 'false');
+  });
+
+  isHidden ? toggle.removeAttribute('tabindex') : toggle.setAttribute('tabindex', '-1');
+});

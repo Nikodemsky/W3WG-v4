@@ -36,6 +36,21 @@ $font-scales: (
             }
         }
 
+        .preferences-navi__visual li:not(:last-of-type):after,
+        .preferences-navi__languages li:not(:last-of-type):after {
+            font-size: calc(#{$preferences_text} * #{$scale});
+        }
+
+        .pref-menu-toggle {
+            width: calc(1.25rem * #{$scale});
+            height: calc(1.25rem * #{$scale});
+        }
+
+        .pref-menu-toggle:before,
+        .pref-menu-toggle:after {
+            width: calc(8px * #{$scale}) !important;
+        }
+
         /*** FOOTER ***/
 
         .footer__share-on span,

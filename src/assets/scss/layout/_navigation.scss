@@ -66,10 +66,10 @@
 		padding: 0.5em;
 	}
 
-	&.preferences-navi--hidden {
+	/* &.preferences-navi--hidden {
 		opacity: 0;
 		pointer-events: none;
-	}
+	} */
 }
 
 @media (min-resolution: 1.1dppx), (max-width: 1599px) {
@@ -123,6 +123,102 @@
 /* .preferences-navi__cookies a {
     cursor: pointer;
 } */
+
+/* Animation for hiding menu */
+
+.pref-menu-toggle {
+	border-radius: 0; border: 0;
+	background: transparent;
+	width: fit-content; height: fit-content;
+	padding: 0;
+	margin-left: auto; margin-bottom: -16px;
+	display: block;
+	z-index: 1;
+	position: relative;
+	cursor: pointer;
+	border-radius: 100%;
+	border: 1px solid $white;
+	width: 1.25rem; height: 1.25rem;
+}
+
+.preferences-navi {
+
+	&.preferences-navi--hidden {
+		transform: translateX(-115px)
+	}
+
+	& .pref-menu-toggle:before {
+		content: '';
+		width: 8px; height: 5px;
+		border-bottom: 1px solid transparent;
+		border-top: 1px solid $white;
+		display: block;
+		position: absolute;
+		margin: auto;
+		inset: 0;
+		transform: rotate(45deg) translateY(2px);
+	}
+
+	& .pref-menu-toggle:after {
+		content: '';
+		width: 8px; height: 1px;
+		background: $white;
+		display: block;
+		position: absolute;
+		margin: auto;
+		inset: 0;
+		transform: rotate(-45deg);
+	}
+
+	&.preferences-navi--hidden ul {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&.preferences-navi--hidden .pref-menu-toggle {
+		border-color: #fff;
+		border-radius: 0 !important;
+	}
+
+	&.preferences-navi--hidden .pref-menu-toggle:before {
+		transform: rotate(0) translateY(-2px);
+		border-bottom: 1px solid #fff;
+	}
+
+	&.preferences-navi--hidden .pref-menu-toggle:after {
+		transform: rotate(0) translateY(4px)
+	}
+
+	@media (max-width: $tablet_top_breakpoint) {
+		&.preferences-navi--hidden {
+			background: transparent;
+        	box-shadow: 0 4px 30px transparent;
+        	backdrop-filter: blur(0px);
+        	-webkit-backdrop-filter: blur(0px);
+		}
+		.pref-menu-toggle {
+			width: 1.75rem; height: 1.75rem;
+		}
+		& .pref-menu-toggle:before,
+		& .pref-menu-toggle:after {
+			width: 15px;
+		}
+	}
+
+	@media (max-width: $mobiletop_breakpoint) {
+		&.preferences-navi--hidden {
+			transform: translateX(0px);
+		}
+		&.preferences-navi--hidden .pref-menu-toggle {
+			background: $darkmode_background;
+		}
+		& .pref-menu-toggle:before,
+		& .pref-menu-toggle:after {
+			width: 12px;
+		}
+	}
+
+}
 
 /** Social media **/
 

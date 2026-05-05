@@ -45,6 +45,31 @@
         color: $lightmode_default_font_color;
     }
 
+    /* Toggle */
+
+    .pref-menu-toggle,
+    .preferences-navi.preferences-navi--hidden .pref-menu-toggle {
+        border-color: $lightmode_default_font_color;
+    }
+
+    .preferences-navi .pref-menu-toggle:before {
+        border-top: 1px solid $lightmode_default_font_color;
+    }
+
+    .preferences-navi.preferences-navi--hidden .pref-menu-toggle:before {
+        border-bottom: 1px solid $lightmode_default_font_color;
+    }
+
+    .preferences-navi .pref-menu-toggle:after {
+        background: $lightmode_default_font_color;
+    }
+
+    @media (max-width: $tablet_top_breakpoint) {
+        .preferences-navi.preferences-navi--hidden .pref-menu-toggle {
+            background: $lightmode_background;
+        }
+    }
+
     /**** FOOTER ****/
 
     .footer__privacy-policy {
