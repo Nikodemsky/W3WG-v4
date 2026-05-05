@@ -1989,11 +1989,28 @@ footer.footer--on-error-page .footer__bottom-grid {
   .preferences-navi.preferences-navi--hidden {
     transform: translateX(0px);
   }
+  .preferences-navi.preferences-navi--hidden ul {
+    animation-delay: 1s !important;
+    animation: fadeAndResize 1s ease-in-out forwards;
+  }
   .preferences-navi.preferences-navi--hidden .pref-menu-toggle {
     background: #151515;
   }
   .preferences-navi .pref-menu-toggle:before, .preferences-navi .pref-menu-toggle:after {
     width: 12px;
+  }
+  @keyframes fadeAndResize {
+    0% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      width: 0px;
+      height: 0px;
+    }
   }
 }
 

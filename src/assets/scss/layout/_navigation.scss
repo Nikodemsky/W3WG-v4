@@ -206,8 +206,13 @@
 	}
 
 	@media (max-width: $mobiletop_breakpoint) {
+
 		&.preferences-navi--hidden {
 			transform: translateX(0px);
+		}
+		&.preferences-navi--hidden ul {
+			animation-delay: 1s !important;
+			animation: fadeAndResize 1s ease-in-out forwards;
 		}
 		&.preferences-navi--hidden .pref-menu-toggle {
 			background: $darkmode_background;
@@ -215,6 +220,20 @@
 		& .pref-menu-toggle:before,
 		& .pref-menu-toggle:after {
 			width: 12px;
+		}
+
+		@keyframes fadeAndResize {
+		0% {
+			opacity: 1;
+		}
+		40% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
+			width: 0px;
+			height: 0px;
+		}
 		}
 	}
 
