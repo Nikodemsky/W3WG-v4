@@ -90,6 +90,11 @@
     justify-content: flex-end;
 }
 
+.post-block__categories li:not(:last-of-type):after {
+    content: ',';
+    margin-right: 3px;
+}
+
 .post-block__title {
     display: block;
 }
