@@ -1930,7 +1930,7 @@ footer.footer--on-error-page .footer__bottom-grid {
 }
 
 .preferences-navi.preferences-navi--hidden {
-  transform: translateX(-115px);
+  transform: translateX(-95%);
 }
 .preferences-navi .pref-menu-toggle:before {
   content: "";
