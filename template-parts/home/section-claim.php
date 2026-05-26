@@ -16,8 +16,7 @@ $claim_header_content = get_field_escaped('home_claim_txt', '', true, null);
         <article class="claim__intro"><?php echo $claim_header_content; ?></article>
         <aside class="claim__learnmore">
             <a 
-            href="#<?php esc_html_e( 'wiecej-informacji', 'wg-blank' ); ?>" 
-            rel="nofollow" 
+            href="#<?php esc_html_e( 'wiecej-informacji', 'wg-blank' ); ?>"
             class="simple-btn">
                 <?php esc_html_e( 'Dowiedz się więcej', 'wg-blank' ); ?>
             </a>

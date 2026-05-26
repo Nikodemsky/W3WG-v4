@@ -33,7 +33,7 @@ $theme_dir = get_stylesheet_directory_uri();
     </div>
 
     <!-- Go up / Na gore -->
-    <a href="#page" class="footer__go-up" rel="nofollow" title="<?php esc_html_e( 'Szybki powrót na górę strony', 'wg-blank' ); ?><">
+    <a href="#page" class="footer__go-up" title="<?php esc_html_e( 'Szybki powrót na górę strony', 'wg-blank' ); ?>" data-nosnippet>
         <svg 
             data-src="<?php echo $theme_dir; ?>/assets/svg/go-up.svg" 
             width="30" 

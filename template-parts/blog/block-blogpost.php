@@ -9,7 +9,6 @@ $categories = get_the_category();
 
 <li class="post-block">
     <a 
-    rel="next" 
     class="post-block__href"
     title="<?php echo esc_html($title); ?>"
     aria-label="<?php esc_html_e('Link przekierowujący do wpisu z treścią','wg-blank'); ?>"

@@ -14,7 +14,7 @@
 				<div class="error-wrap__addon">
 					<p><?php esc_html_e( 'Strona, której szukasz została usunięta, przeniesiono ją lub jest tymczasowo niedostępna.', 'wg-blank' ); ?></p>
 				</div>
-				<a href="https://w3wg.com" rel="nofollow" class="simple-btn simple-btn--bigger-font simple-btn--transparent-bg" title="<?php esc_html_e( 'Powrót do bloga', 'wg-blank' ); ?>"><?php esc_html_e('Wróć do strony głównej','w3wg3'); ?></a>
+				<a href="https://w3wg.com" class="simple-btn simple-btn--bigger-font simple-btn--transparent-bg" title="<?php esc_html_e( 'Powrót do bloga', 'wg-blank' ); ?>"><?php esc_html_e('Wróć do strony głównej','w3wg3'); ?></a>
 			</aside>
 
 		</div>

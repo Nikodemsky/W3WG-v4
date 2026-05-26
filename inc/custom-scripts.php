@@ -8,7 +8,7 @@ function loadk_scripts() {
     $q_id = get_queried_object_id();
 
     // Inits and imports
-    wp_enqueue_script( 'main', $theme_dir.'/assets/js/main.min.js', array(), '1.0', array('strategy' =>'defer','in-footer'=>true));
+    wp_enqueue_script( 'main', $theme_dir.'/assets/js/main.min.js', array(), '1.02', array('strategy' =>'defer','in-footer'=>true));
 
     // Prism JS
     if (is_singular('post') && get_field('prismjs_check', $q_id)) {

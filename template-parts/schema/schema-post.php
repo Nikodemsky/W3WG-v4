@@ -6,7 +6,7 @@
 "description": "<?php echo the_seo_framework()->get_description(); ?>",
 "image": "<?php echo get_the_post_thumbnail_url( '', 'full' ); ?>",  
 "author": {
-    "@type": "Organization",
+    "@type": "Person",
     "name": " Wojciech Górski",
     "url": "https://www.linkedin.com/in/wg-w3wg/"
 },  

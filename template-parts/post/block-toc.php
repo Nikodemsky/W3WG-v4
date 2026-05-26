@@ -22,7 +22,7 @@ $list = get_field($list_field_id, $passed_post_id);
                 $sanitized_title = sanitize_title($title);
 
                 // output
-                echo '<li><a href="#'.$sanitized_title.'" rel="nofollow">'.$title.'</a></li>';
+                echo '<li><a href="#'.$sanitized_title.'" rel="noopener noreferrer">'.$title.'</a></li>';
 
             endforeach; ?>
         </ol>

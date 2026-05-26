@@ -8,14 +8,15 @@
   "url": "https://w3wg.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Kościerzyna",
-    "postalCode": "83-400",
+    "streetAddress": "nr domu 57",
+    "addressLocality": "Łubiana",
+    "postalCode": "83-407",
     "addressCountry": "PL"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 54.12218204158322,
-    "longitude": 17.982228651404835
+    "latitude": 54.114294620802546,
+    "longitude": 17.858243076274462
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",

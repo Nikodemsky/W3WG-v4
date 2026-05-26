@@ -32,7 +32,7 @@ function wg_styles() {
     $theme_dir = get_stylesheet_directory_uri();
 
     // Load compiled styles
-    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.02' );
+    wp_register_style( 'main-css', $theme_dir . '/assets/css/main.min.css', array(), '1.07' );
     wp_enqueue_style( 'main-css' );
 
 }
